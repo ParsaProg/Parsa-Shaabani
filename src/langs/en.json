@@ -1,3 +1,13 @@
 {
-    "title": "Parsa"
+    "changeLang": {
+        "english": "English",
+        "persian": "Persian"
+    },
+    "connection": {
+        "title": "Connect Me",
+        "socialTitle": "Social Links",
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "phoneNumber": "+98 991 598 0854"
+    }
 }
