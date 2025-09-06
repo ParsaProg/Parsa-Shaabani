@@ -29,7 +29,7 @@ export default function ConnectionDialog() {
             animate={{ opacity: 1, scale: 1, top: "50px" }}
             exit={{ opacity: 0, scale: 0.9, top: 20 }}
             transition={{ duration: 0.1 }}
-            className={`z-[9999] absolute top-[50px] border-slate-300 rounded-lg dark:bg-background-dark dark:text-white text-black bg-neutral-100 flex flex-col items-start w-[290px] gap-y-5 
+            className={`z-[9999] absolute top-[50px] border-slate-300 rounded-lg dark:bg-background-dark dark:text-white text-black bg-neutral-100 flex flex-col items-start w-[295px] gap-y-5 
           dark:border-neutral-800 border-[#E2E8F0] border-[0.5px] p-4 ${
             lang === "en" ? "right-0" : "left-0"
           }`}
