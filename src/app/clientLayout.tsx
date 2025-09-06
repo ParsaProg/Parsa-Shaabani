@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/components/Header/Header";
 import { useLang } from "@/contexts/languegeContext";
 import { ReactNode } from "react";
 
@@ -11,6 +12,7 @@ export const ClientLayout = ({ children }: { children: ReactNode }) => {
       className={`${lang === "fa" ? "font-iransans" : "font-inter"}`}
       dir={lang === "fa" ? "rtl" : "ltr"}
     >
+      <Header />
       {children}
     </div>
   );
