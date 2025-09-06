@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning>
-      <body className=" dark:bg-background-dark bg-background-light">
+      <body className="select-none dark:bg-background-dark bg-background-light">
         <LangProvider>
           <ThemeProvider enableSystem defaultTheme="system" attribute="class">
             <ClientLayout>{children}</ClientLayout>
