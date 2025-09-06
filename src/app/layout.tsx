@@ -8,6 +8,14 @@ import { ClientLayout } from "./clientLayout";
 export const metadata: Metadata = {
   title: "Parsa Shaabani | پارسا شعبانی",
   description: "ParsaShaabani portfolio website",
+  openGraph: {
+    title: "Parsa Shaabani | پارسا شعبانی",
+    description: "ParsaShaabani portfolio website",
+  },
+  twitter: {
+    title: "Parsa Shaabani | پارسا شعبانی",
+    description: "ParsaShaabani portfolio website",
+  },
 };
 
 export default function RootLayout({
