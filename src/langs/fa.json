@@ -1,3 +1,13 @@
 {
-    "title": "پارسا"
+  "changeLang": {
+    "english": "انگلیسی",
+    "persian": "فارسی"
+  },
+  "connection": {
+    "title": "ارتباط با من",
+    "socialTitle": "شبکه‌های اجتماعی",
+    "github": "گیت‌ هاب",
+    "linkedin": "لینکدین",
+    "phoneNumber": "+۹۸ ۹۹۱ ۵۹۸ ۰۸۵۴"
+  }
 }
