@@ -23,6 +23,7 @@ export const LangProvider: FC<LangProviderProps> = ({ children }) => {
     if (storedLang) {
       setLang(storedLang);
     } else {
+      setLang("en");
       localStorage.setItem("lang", "en");
     }
   }, []);
