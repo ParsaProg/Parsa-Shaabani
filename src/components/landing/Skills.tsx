@@ -39,7 +39,7 @@ export default function MySkills() {
                 <div className="md:w-[20px] md:h-[20px] w-[15px] h-[15px]">
                   {skill.logo}
                 </div>
-                <h1 className="font-bold dark:text-white text-black md:text-md text-[12px]">
+                <h1 className="font-bold dark:text-white text-black text-[12px] md:text-lg">
                   {skill.tag}
                 </h1>
               </div>

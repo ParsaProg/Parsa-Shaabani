@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   const { lang } = useLang();
   return (
-    <div className="flex [@media(max-width:980px)]:flex-col-reverse items-center gap-y-3 justify-between  [@media(max-width:1200px)]:w-[95%] w-[80%] mx-auto">
+    <div className="flex [@media(max-width:980px)]:flex-col-reverse items-center gap-y-3 justify-between  [@media(max-width:1200px)]:w-[95%] w-[90%] mx-auto">
       <div className="flex flex-col items-start [@media(max-width:980px)]:p-5 [@media(max-width:980px)]:text-center [@media(max-width:980px)]:items-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
