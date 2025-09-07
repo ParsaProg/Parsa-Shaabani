@@ -18,5 +18,17 @@
   },
   "mySkills": {
     "title": "مهارت‌های اصلی"
+  },
+  "experience": {
+    "title": "تجربه‌ی کاری",
+     "model": [
+      {
+        "fromData": "مهر 1399",
+        "toData": "آبان 1400",
+        "title": "شرکت زریال شیراز",
+        "desc": "به عنوان توسعه دهنده پایتون در حوزه اصلی مهندسی نرم افزار و تیم توسعه",
+        "cats": ["Python", "cv2", "Mechine Learning", "Numpy", "TToutputs"]
+      }
+    ]
   }
 }
