@@ -13,6 +13,7 @@ export const ClientLayout = ({ children }: { children: ReactNode }) => {
       dir={lang === "fa" ? "rtl" : "ltr"}
     >
       <Header />
+      <div className="h-[50px]"></div>
       {children}
     </div>
   );

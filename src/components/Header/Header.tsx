@@ -8,7 +8,7 @@ export default function Header() {
   const { toggleLang, lang } = useLang();
   const { theme, setTheme } = useTheme();
   return (
-    <div className="w-full p-2 flex justify-center border-b-[1px] dark:border-b-[#27272A] border-b-[#E2E8F0]">
+    <div className="fixed top-0 dark:bg-background-dark bg-background-light w-full p-2 flex justify-center border-b-[1px] dark:border-b-[#27272A] border-b-[#E2E8F0]">
       <div className="sm:w-[80%] w-[95%] flex items-center justify-between py-3">
         <a href="/" className="w-[100px]">
           <svg
