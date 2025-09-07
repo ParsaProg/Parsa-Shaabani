@@ -15,5 +15,8 @@
         "skillTitle": "Programmer & Frontend Developer",
         "description": "🚀 Hi, I’m Parsa Shaabani — a passionate full-stack developer crafting modern web apps with React, Next.js, Tailwind & APIs. 💡 I love turning ideas into clean, functional code and designing projects that blend creativity with performance. 🌐 Explore my portfolio to see innovation, growth & passion in action!",
         "buttonContent": "Get Resume"
+    },
+    "mySkills": {
+        "title": "Top Skills"
     }
 }
