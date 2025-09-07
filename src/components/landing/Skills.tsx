@@ -22,7 +22,7 @@ export default function MySkills() {
           return (
             <motion.div
               whileInView={"visible"}
-              viewport={{ once: true, amount: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
               initial={"hidden"}
               variants={{
                 visible: { opacity: 1, x: 0 },
