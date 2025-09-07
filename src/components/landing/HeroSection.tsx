@@ -5,21 +5,20 @@ import profilePicture from "@/../public/images/profilePicture.png";
 import { useLang } from "@/contexts/languegeContext";
 import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
-import { Download } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
   const { lang } = useLang();
   return (
-    <div className="flex items-center justify-around w-[85%] mx-auto justify-center">
-      <div className="flex flex-col items-start">
-        <h1 className="font-bold text-[40px]">
+    <div className="flex [@media(max-width:980px)]:flex-col-reverse items-center gap-y-3 justify-around w-[100%] justify-between">
+      <div className="flex flex-col items-start [@media(max-width:980px)]:p-5 [@media(max-width:980px)]:text-center [@media(max-width:980px)]:items-center">
+        <h1 className="font-bold [@media(min-width:980px)]:text-[40px] text-2xl mb-3">
           {lang === "en" ? en.hero.title : fa.hero.title}
         </h1>
         <h3 className="font-[500] text-lg">
           {lang === "en" ? en.hero.skillTitle : fa.hero.skillTitle}
         </h3>
-        <p className="font-[400] leading-[30px] text-md w-[580px] mt-3 dark:text-neutral-300 text-neutral-700">
+        <p className="[@media(max-width:980px)]:text-sm font-[400] [@media(max-width:980px)]:leading-[25px] leading-[30px] text-md [@media(min-width:980px)]:w-[580px] mt-3 dark:text-neutral-300 text-neutral-700">
           {lang === "en" ? en.hero.description : fa.hero.description}
         </p>
         <motion.button
@@ -48,10 +47,12 @@ export default function HeroSection() {
           {lang === "en" ? en.hero.buttonContent : fa.hero.buttonContent}
         </motion.button>
       </div>
-      <div className="border-[3px] w-[300px] h-[300px] dark:border-neutral-500 border-neutral-200 rounded-full p-1">
+      <div className="border-[3px] [@media(max-width:980px)]:w-[250px] [@media(max-width:980px)]:h-[250px] w-[300px] h-[300px] dark:border-neutral-500 border-neutral-200 rounded-full p-1">
         <Image
+        width={800}
+        height={800}
           alt="Parsa-Shaabani"
-          src={profilePicture}
+          src={"https://avatars.githubusercontent.com/u/122119546?v=4"}
           className="rounded-full "
           unoptimized
           quality={100}
