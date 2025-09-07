@@ -3,7 +3,7 @@ import MySkills from "@/components/landing/Skills";
 
 export default function HomePage() {
   return (
-    <div className="mt-[90px] w-[90%] mx-auto">
+    <div className="mt-[90px] md:w-[90%] w-full mx-auto">
       <HeroSection />
       <MySkills />
     </div>
