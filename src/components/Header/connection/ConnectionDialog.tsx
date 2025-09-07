@@ -176,7 +176,7 @@ export default function ConnectionDialog() {
           animate={{opacity: 1}}
           exit={{opacity: 0 }}
             onClick={() => setIsShowDialog(false)}
-            className="[@media(max-width:980px)]:backdrop-blur-lg opacity-[1] z-[9998] inset-0 w-full h-screen top-0 right-0 fixed bg-transparent"
+            className="[@media(max-width:980px)]:backdrop-blur-sm opacity-[1] z-[9998] inset-0 w-full h-screen top-0 right-0 fixed bg-transparent"
           ></motion.div>
         )}
       </AnimatePresence>
