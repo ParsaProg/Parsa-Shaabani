@@ -2,7 +2,7 @@
 
 import { Github, Linkedin, MailIcon, Phone, PhoneCall, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLang } from "@/contexts/languegeContext";
 import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
@@ -10,6 +10,13 @@ import fa from "@/langs/fa.json";
 export default function ConnectionDialog() {
   const { lang } = useLang();
   const [isShowDialog, setIsShowDialog] = useState<boolean>(false);
+  useEffect(() => {
+    if (isShowDialog) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isShowDialog]);
   return (
     <div className="[@media(min-width:980px)]:relative ">
       <motion.div
@@ -161,12 +168,18 @@ export default function ConnectionDialog() {
           </motion.div>
         )}
       </AnimatePresence>
-      {isShowDialog && (
-        <div
-          onClick={() => setIsShowDialog(false)}
-          className="[@media(max-width:980px)]:bg-[#0F0F0F] opacity-[0.8] z-[9998] inset-0 w-full h-screen top-0 right-0 fixed bg-transparent"
-        ></div>
-      )}
+      <AnimatePresence>
+        {" "}
+        {isShowDialog && (
+          <motion.div
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          exit={{opacity: 0 }}
+            onClick={() => setIsShowDialog(false)}
+            className="[@media(max-width:980px)]:backdrop-blur-lg opacity-[1] z-[9998] inset-0 w-full h-screen top-0 right-0 fixed bg-transparent"
+          ></motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
