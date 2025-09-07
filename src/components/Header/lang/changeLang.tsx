@@ -36,6 +36,7 @@ export default function ChangeLang({ toggleLang, lang }: any) {
               onClick={() => {
                 if (lang !== "fa") {
                   toggleLang();
+                  window.location.reload();
                 }
               }}
               className="dark:hover:bg-neutral-800 hover:bg-slate-300 px-2 mx-1 mt-1 transition-all duration-200 py-2 w-[95%] rounded-md cursor-pointer flex items-center gap-x-2"
@@ -74,6 +75,7 @@ export default function ChangeLang({ toggleLang, lang }: any) {
               onClick={() => {
                 if (lang !== "en") {
                   toggleLang();
+                  window.location.reload();
                 }
               }}
               className="dark:hover:bg-neutral-800 hover:bg-slate-300 px-2 mx-1 mb-1 transition-all duration-200 py-2 w-[95%] rounded-md cursor-pointer flex items-center gap-x-2"
