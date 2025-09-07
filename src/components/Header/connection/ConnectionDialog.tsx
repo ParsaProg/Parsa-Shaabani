@@ -120,14 +120,14 @@ export default function ConnectionDialog() {
                 ? en.connection.socialTitle
                 : fa.connection.socialTitle}
             </h1>
-            <section className="flex items-center gap-x-2">
+            <section className="flex items-center gap-x-2 w-full">
               <motion.a
                 target="_blank"
                 href="https://github.com/ParsaProg"
                 whileTap={{
                   scale: 0.95,
                 }}
-                className="outline-none cursor-pointer p-3 border-[1px] dark:border-neutral-800 px-5 border-neutral-300 dark:hover:text-primary-dark hover:text-primary-light text-primray-light transition-colors duration-200 rounded-lg flex items-center gap-x-2 justify-center"
+                className="outline-none cursor-pointer p-3 border-[1px] dark:border-neutral-800 px-5 border-neutral-300 dark:hover:text-primary-dark hover:text-primary-light text-primray-light transition-colors duration-200 rounded-lg flex items-center gap-x-2 justify-center w-full"
               >
                 <Github size={18} />
                 {lang === "en" ? en.connection.github : fa.connection.github}
@@ -138,7 +138,7 @@ export default function ConnectionDialog() {
                 whileTap={{
                   scale: 0.95,
                 }}
-                className="outline-none cursor-pointer p-3 border-[1px] dark:border-neutral-800 px-5 border-neutral-300 dark:hover:text-primary-dark hover:text-primary-light text-primray-light transition-colors duration-200 rounded-lg flex items-center gap-x-2 justify-center"
+                className="outline-none cursor-pointer p-3 border-[1px] dark:border-neutral-800 px-5 border-neutral-300 dark:hover:text-primary-dark hover:text-primary-light text-primray-light transition-colors duration-200 rounded-lg flex items-center gap-x-2 justify-center w-full"
               >
                 <Linkedin size={18} />
                 {lang === "en"
