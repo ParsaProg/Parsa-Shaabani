@@ -6,8 +6,10 @@ import { useLang } from "@/contexts/languegeContext";
 import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function HeroSection() {
+  const [isLoad, setIsLoad] = useState<boolean>(false);
   const { lang } = useLang();
   return (
     <div className="flex [@media(max-width:980px)]:flex-col-reverse items-center gap-y-3 justify-between  [@media(max-width:1200px)]:w-[95%] w-[90%] mx-auto">
@@ -80,12 +82,16 @@ export default function HeroSection() {
           exit={{ opacity: 0, y: 30 }}
           transition={{ delay: 0.5 }} className="border-[3px] [@media(max-width:980px)]:w-[250px] [@media(max-width:980px)]:h-[250px] w-[300px] h-[300px] dark:border-neutral-500 border-neutral-200 rounded-full p-1">
         <Image
-        
+          onLoad={() => {setIsLoad(true)}}
           width={800}
           height={800}
           alt="Parsa-Shaabani"
           src={"https://avatars.githubusercontent.com/u/122119546?v=4"}
-          className="rounded-full "
+          className={`${
+              isLoad
+                ? "scale-[1] blur-0 grayscale-0"
+                : "grayscale scale-[0.9] blur-lg"
+            } transition-all duration-1000 rounded-full z-[-1]`}
           unoptimized
           quality={100}
         />
