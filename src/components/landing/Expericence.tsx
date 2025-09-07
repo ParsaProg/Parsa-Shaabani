@@ -33,7 +33,7 @@ export default function Experience() {
                   }}
                 >
                   <Circle
-                    className="dark:text-primary-dark text-primary-light"
+                    className={`${ExperiencesDataModelEnglish.length !== _i + 1 ? "dark:text-primary-dark text-primary-light": "text-transparent"}`}
                     size={20}
                   />
                 </motion.div>
@@ -46,7 +46,7 @@ export default function Experience() {
                     hidden: { opacity: 0, height: 0 },
                     visible: { opacity: 1, height: "220px" },
                   }}
-                  className="w-[2px] sm:h-[150px] h-[220px] dark:bg-primary-dark bg-primary-light"
+                  className={`w-[2px] sm:h-[150px] h-[220px] ${ExperiencesDataModelEnglish.length !== _i + 1? "dark:bg-primary-dark bg-primary-light": "bg-transparent"} `}
                 ></motion.div>
               </section>
               <section className="flex flex-col gap-y-3 overflow-hidden">

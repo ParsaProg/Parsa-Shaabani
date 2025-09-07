@@ -1043,6 +1043,10 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.text-transparent {
+  color: transparent;
+}
+
 .opacity-\[1\] {
   opacity: 1;
 }
