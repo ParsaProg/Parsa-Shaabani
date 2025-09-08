@@ -7,14 +7,14 @@ import { ClientLayout } from "./clientLayout";
 
 export const metadata: Metadata = {
   title: "Parsa Shaabani | پارسا شعبانی",
-  description: "ParsaShaabani portfolio website",
+  description: "پارسا شعبانی، برنامه نویس و توسعه دهندۀ فرانت‌اند، رزومه‌ها و پروژه‌ها، علاقه‌مند به تکنولوژی و ورزش مکرر",
   openGraph: {
     title: "Parsa Shaabani | پارسا شعبانی",
-    description: "ParsaShaabani portfolio website",
+    description: "پارسا شعبانی، برنامه نویس و توسعه دهندۀ فرانت‌اند، رزومه‌ها و پروژه‌ها، علاقه‌مند به تکنولوژی و ورزش مکرر",
   },
   twitter: {
     title: "Parsa Shaabani | پارسا شعبانی",
-    description: "ParsaShaabani portfolio website",
+    description: "پارسا شعبانی، برنامه نویس و توسعه دهندۀ فرانت‌اند، رزومه‌ها و پروژه‌ها، علاقه‌مند به تکنولوژی و ورزش مکرر",
   },
 };
 
