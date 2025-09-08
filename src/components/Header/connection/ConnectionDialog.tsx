@@ -18,7 +18,7 @@ export default function ConnectionDialog() {
     }
   }, [isShowDialog]);
   return (
-    <div className="[@media(min-width:980px)]:relative ">
+    <div className="[@media(min-width:980px)]:relative">
       <motion.div
         whileTap={{
           scale: 0.9,
@@ -36,7 +36,7 @@ export default function ConnectionDialog() {
             animate={{ opacity: 1, scale: 1, top: "50px" }}
             exit={{ opacity: 0, scale: 0.9, top: 20 }}
             transition={{ duration: 0.1 }}
-            className={`z-[9999] absolute [@media(max-width:980px)]:hidden visible top-[50px] border-slate-300 rounded-lg dark:bg-background-dark dark:text-white text-black bg-neutral-100 flex flex-col items-start w-[295px] gap-y-5 
+            className={`z-[9999] absolute [@media(max-width:980px)]:hidden visible top-[50px] rounded-lg dark:bg-background-dark dark:text-white text-black bg-neutral-100 flex flex-col items-start w-[295px] gap-y-5 
           dark:border-neutral-800 border-[#E2E8F0] border-[0.5px] p-4 ${
             lang === "en" ? "right-0" : "left-0"
           }`}
@@ -100,7 +100,7 @@ export default function ConnectionDialog() {
             animate={{ opacity: 1, bottom: 0 }}
             exit={{ opacity: 0, bottom: -50 }}
             transition={{ duration: 0.3 }}
-            className={`z-[9999] fixed [@media(min-width:980px)]:hidden visible bottom-[0] border-slate-300 rounded-lg dark:bg-background-dark dark:text-white text-black bg-neutral-100 flex flex-col items-start w-full gap-y-5 
+            className={`z-[9999] fixed [@media(min-width:980px)]:hidden visible bottom-[0] rounded-lg dark:bg-background-dark dark:text-white text-black bg-neutral-100 flex flex-col items-start w-full gap-y-5 
           dark:border-neutral-800 border-[#E2E8F0] border-[0.5px] p-4 ${
             lang === "en" ? "right-0" : "left-0"
           }`}
