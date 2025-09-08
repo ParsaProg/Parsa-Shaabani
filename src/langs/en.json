@@ -30,5 +30,22 @@
         "cats": ["Python", "cv2", "Mechine Learning", "Numpy", "TToutputs"]
       }
     ]
+  },
+  "myProjects": {
+    "title": "My Projects",
+    "seeMore": "See More"
+  },
+  "getInTouch": {
+    "title": "Connection Me",
+    "form": {
+      "title": "Let's connect and work together!",
+      "subTitle": "I am an experienced frontend developer with expertise in modern frameworks, specializing in building fast, optimized, and scalable applications using React, Next.js, and TypeScript. With a focus on user experience, interactive component development, and clean coding practices, I have crafted efficient and functional user interfaces. By leveraging TypeScript's strict type-checking and Next.js optimization techniques, I aim to deliver modern, high-performing, and secure web experiences that meet users' needs.",
+      "fields": {
+        "fullName": "Full Name",
+        "email": "Email",
+        "message": "Message"
+      },
+      "confirmButtonContent": "Send"
+    }
   }
 }
