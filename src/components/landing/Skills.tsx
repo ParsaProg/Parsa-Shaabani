@@ -13,7 +13,7 @@ export default function MySkills() {
     <div className="flex flex-col items-start mt-[100px] md:w-[90%] w-full md:p-0 p-3 mx-auto">
       <div className="flex dark:text-primary-dark text-primary-light items-center gap-x-2">
         <Rocket size={24} />
-        <h1 className="font-bold dark:text-white text-black font-bold text-[25px]">
+        <h1 className=" dark:text-white text-black font-bold text-[25px]">
           {lang === "en" ? en.mySkills.title : fa.mySkills.title}
         </h1>
       </div>
@@ -36,10 +36,10 @@ export default function MySkills() {
               className="flex items-center md:gap-x-3 gap-x-2 md:px-5 px-3 py-3 rounded-full dark:bg-[#27272A] bg-[#F1F5F9]"
             >
               <div className="flex items-center gap-x-2">
-                <div className="md:w-[20px] md:h-[20px] w-[15px] h-[15px]">
+                <div className="md:w-[18px] md:h-[18px] w-[15px] h-[15px]">
                   {skill.logo}
                 </div>
-                <h1 className="font-bold dark:text-white text-black text-[12px] md:text-lg">
+                <h1 className="font-bold dark:text-white text-black text-[12px] md:text-md">
                   {skill.tag}
                 </h1>
               </div>
