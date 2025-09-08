@@ -85,7 +85,7 @@ export const ProjectsModelDataFa: ProjectsType[] = [
     description:
       "♟ ChessNaami | پلتفرم برتر آموزش شطرنج ایران مستقر در تهران | ارائه دوره‌های ساختارمند به زبان فارسی از سطوح مبتدی تا پیشرفته | شامل تجزیه و تحلیل هوش مصنوعی در لحظه، مربیگری شخصی‌سازی‌شده توسط مربیان دارای گواهینامه فیده و آموزش‌های آنلاین/آفلاین منظم | یک اکوسیستم کامل",
     githubLink: "https://github.com/ParsaProg/chess-naami-academy",
-    deployLink: "chessnaami.ir",
+    deployLink: "https://chessnaami.ir",
     cats: [
       "Javascript",
       "React",
