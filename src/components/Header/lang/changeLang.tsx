@@ -29,7 +29,7 @@ export default function ChangeLang({ toggleLang, lang }: any) {
             transition={{ duration: 0.1 }}
             className={`z-[9999] absolute top-[50px] ${
               lang === "en" ? "right-0" : "left-0"
-            } border-slate-300 rounded-lg dark:bg-background-dark dark:text-white text-black bg-neutral-100 flex flex-col items-start w-[150px] gap-y-1 
+            } rounded-lg dark:bg-background-dark dark:text-white text-black bg-neutral-100 flex flex-col items-start w-[150px] gap-y-1 
           dark:border-neutral-800 border-[#E2E8F0] border-[0.5px]`}
           >
             <h1
@@ -39,7 +39,7 @@ export default function ChangeLang({ toggleLang, lang }: any) {
                   window.location.reload();
                 }
               }}
-              className="dark:hover:bg-neutral-800 hover:bg-slate-300 px-2 mx-1 mt-1 transition-all duration-200 py-2 w-[95%] rounded-md cursor-pointer flex items-center gap-x-2"
+              className="dark:hover:bg-neutral-800 hover:bg-slate-200 px-2 mx-1 mt-1 transition-all duration-200 py-2 w-[95%] rounded-md cursor-pointer flex items-center gap-x-2"
             >
               <svg
                 width="800px"
@@ -78,7 +78,7 @@ export default function ChangeLang({ toggleLang, lang }: any) {
                   window.location.reload();
                 }
               }}
-              className="dark:hover:bg-neutral-800 hover:bg-slate-300 px-2 mx-1 mb-1 transition-all duration-200 py-2 w-[95%] rounded-md cursor-pointer flex items-center gap-x-2"
+              className="dark:hover:bg-neutral-800 hover:bg-slate-200 px-2 mx-1 mb-1 transition-all duration-200 py-2 w-[95%] rounded-md cursor-pointer flex items-center gap-x-2"
             >
               <svg
                 width="800px"
