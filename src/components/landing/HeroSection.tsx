@@ -18,7 +18,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 30 }}
           transition={{ delay: 0.3 }}
-          className="font-bold [@media(min-width:980px)]:text-[40px] text-2xl mb-3"
+          className="[@media(min-width:980px)]:text-[40px] font-bold text-2xl mb-3"
         >
           {lang === "en" ? en.hero.title : fa.hero.title}
         </motion.h1>
