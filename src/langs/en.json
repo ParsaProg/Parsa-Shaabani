@@ -47,5 +47,8 @@
       },
       "confirmButtonContent": "Send"
     }
+  },
+ "footer": {
+    "title": "Eager to build modern websites with the latest web technologies"
   }
 }
