@@ -17,7 +17,7 @@ export default function Experience() {
           {lang === "en" ? en.experience.title : fa.experience.title}
         </h1>
       </div>
-      <ul className="flex flex-col items-start mt-5 mx-1">
+      <ul className="flex flex-col gap-y-1  items-start mt-5 mx-1">
         {ExperiencesDataModelEnglish.map((experience, _i) => {
           return (
             <li key={_i} className="flex items-start gap-x-2 font-inter">
