@@ -30,9 +30,9 @@ export default function TopScrollButton() {
       whileTap={{
         scale: 0.9,
       }}
-      className={`fixed z-[9997] bottom-10 ${
+      className={`fixed z-[9997] bottom-[50px] ${
         lang === "en" ? "left-5" : "right-5"
-      } outline-none rounded-lg p-2 dark:text-black text-white dark:bg-primary-dark bg-primary-light`}
+      } cursor-default outline-none rounded-full p-3 dark:text-black text-white dark:bg-primary-dark bg-primary-light`}
     >
       <ArrowUp size={20} />
     </motion.button>
