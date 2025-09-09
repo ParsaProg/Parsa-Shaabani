@@ -5,6 +5,8 @@ export default interface ProjectsType {
   deployLink?: string;
   githubLink: string;
   cats: Array<string>;
+  posterImage: Record<"light" | "dark", string>;
+  supportTheme?: string;
 }
 
 export const ProjectsModelDataEn: ProjectsType[] = [
@@ -16,6 +18,12 @@ export const ProjectsModelDataEn: ProjectsType[] = [
     deployLink: "https://tecama.vercel.app",
     cats: ["ReactJs", "NextJs", "TailwindCss", "Vercel"],
     tag: "Frontend Developer",
+    posterImage: {
+      light:
+        "https://github.com/ParsaProg/tecama/blob/main/public/tecama-light.png?raw=true",
+      dark: "https://github.com/ParsaProg/tecama/blob/main/public/tecama-dark.png?raw=true",
+    },
+    supportTheme: "multiTheme",
   },
   {
     title: "Health",
@@ -25,6 +33,12 @@ export const ProjectsModelDataEn: ProjectsType[] = [
     deployLink: "https://health-mauve-five.vercel.app/",
     cats: ["ReactJs", "NextJs", "Vercel", "TailwindCss", "react-particles"],
     tag: "Frontend Developer",
+    posterImage: {
+      light:
+        "https://github.com/ParsaProg/Health/blob/main/public/images/light-shot.png?raw=true",
+      dark: "https://github.com/ParsaProg/Health/blob/main/public/images/dark-shot.png?raw=true",
+    },
+    supportTheme: "multiTheme",
   },
   {
     title: "GitHub_Analytic_Scraping",
@@ -33,6 +47,11 @@ export const ProjectsModelDataEn: ProjectsType[] = [
     githubLink: "https://github.com/ParsaProg/GitHub_Analytic_Scraping",
     cats: ["Python", "requests", "bs4", "Fastapi"],
     tag: "Backend Developer",
+    posterImage: {
+      light:
+        "https://github.com/ParsaProg/GitHub_Analytic_Scraping/blob/main/github-analytic-light.png?raw=true",
+      dark: "https://github.com/ParsaProg/GitHub_Analytic_Scraping/blob/main/github-analytic-dark.png?raw=true",
+    },
   },
   {
     title: "chess-naami-academy",
@@ -50,6 +69,12 @@ export const ProjectsModelDataEn: ProjectsType[] = [
       "Tailwindcss",
     ],
     tag: "Fullstack Developer",
+    posterImage: {
+      light:
+        "https://github.com/ParsaProg/chess-naami-academy/blob/main/public/images/chessnaami-shot.png?raw=true",
+      dark: "https://github.com/ParsaProg/chess-naami-academy/blob/main/public/images/chessnaami-shot.png?raw=true",
+    },
+    supportTheme: "light",
   },
 ];
 
@@ -62,6 +87,12 @@ export const ProjectsModelDataFa: ProjectsType[] = [
     deployLink: "https://tecama.vercel.app",
     cats: ["ReactJs", "NextJs", "TailwindCss"],
     tag: "Frontend Developer",
+    posterImage: {
+      light:
+        "https://github.com/ParsaProg/tecama/blob/main/public/tecama-light.png?raw=true",
+      dark: "https://github.com/ParsaProg/tecama/blob/main/public/tecama-dark.png?raw=true",
+    },
+    supportTheme: "multiTheme",
   },
   {
     title: "سلامتی",
@@ -71,6 +102,12 @@ export const ProjectsModelDataFa: ProjectsType[] = [
     deployLink: "https://health-mauve-five.vercel.app/",
     cats: ["ReactJs", "NextJs", "Vercel", "TailwindCss", "react-particles"],
     tag: "Frontend Developer",
+    posterImage: {
+      light:
+        "https://github.com/ParsaProg/Health/blob/main/public/images/light-shot.png?raw=true",
+      dark: "https://github.com/ParsaProg/Health/blob/main/public/images/dark-shot.png?raw=true",
+    },
+    supportTheme: "multiTheme",
   },
   {
     title: "اسکرپینگ پروفایل گیت‌هاب",
@@ -79,6 +116,11 @@ export const ProjectsModelDataFa: ProjectsType[] = [
     githubLink: "https://github.com/ParsaProg/GitHub_Analytic_Scraping",
     cats: ["Python", "requests", "bs4", "Fastapi"],
     tag: "Backend Developer",
+    posterImage: {
+      light:
+        "https://github.com/ParsaProg/GitHub_Analytic_Scraping/blob/main/github-analytic-light.png?raw=true",
+      dark: "https://github.com/ParsaProg/GitHub_Analytic_Scraping/blob/main/github-analytic-dark.png?raw=true",
+    },
   },
   {
     title: "آموزشگاه شطرنج نعامی",
@@ -96,5 +138,11 @@ export const ProjectsModelDataFa: ProjectsType[] = [
       "Tailwindcss",
     ],
     tag: "Fullstack Developer",
+    posterImage: {
+      light:
+        "https://github.com/ParsaProg/chess-naami-academy/blob/main/public/images/chessnaami-shot.png?raw=true",
+      dark: "https://github.com/ParsaProg/chess-naami-academy/blob/main/public/images/chessnaami-shot.png?raw=true",
+    },
+    supportTheme: "light",
   },
 ];
