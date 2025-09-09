@@ -40,7 +40,7 @@ export default function ProjectContainer({
           );
         })}
       </div>
-      <span className="mt-2 h-[.3px] dark:bg-neutral-800 bg-neutral-200 w-full" />
+      <span className="mt-2 h-[.3px] dark:bg-neutral-800 bg-neutral-200 w-full z-[-2]" />
       <section
         dir="ltr"
         className="flex justify-between items-center w-full mt-2"
