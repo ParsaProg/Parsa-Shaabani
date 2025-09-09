@@ -2,7 +2,7 @@
 
 import { useLang } from "@/contexts/languegeContext";
 import { ArrowUp } from "lucide-react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function TopScrollButton() {
@@ -24,19 +24,31 @@ export default function TopScrollButton() {
     });
   }, []);
   const { lang } = useLang();
-  return isScroll ? (
-    <motion.button
-      onClick={scrollToTop}
-      whileTap={{
-        scale: 0.9,
-      }}
-      className={`fixed z-[9997] bottom-[50px] ${
-        lang === "en" ? "left-5" : "right-5"
-      } cursor-default outline-none rounded-full p-3 dark:text-black text-white dark:bg-primary-dark bg-primary-light`}
-    >
-      <ArrowUp size={20} />
-    </motion.button>
-  ) : (
-    <div></div>
+  return (
+    <AnimatePresence>
+      {isScroll && (
+        <motion.button
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={{
+            hidden: {
+              opacity: 0,
+              scale: 0.95,
+            },
+            visible: { opacity: 1, scale: 1 },
+          }}
+          onClick={scrollToTop}
+          whileTap={{
+            scale: 0.9,
+          }}
+          className={`fixed z-[9997] bottom-[50px] ${
+            lang === "en" ? "left-5" : "right-5"
+          } cursor-default outline-none rounded-full p-3 dark:text-black text-white dark:bg-primary-dark bg-primary-light`}
+        >
+          <ArrowUp size={20} />
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 }
