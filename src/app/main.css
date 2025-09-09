@@ -809,6 +809,46 @@ video {
   height: 150px;
 }
 
+.h-\[\] {
+  height: ;
+}
+
+.h-\[400px\] {
+  height: 400px;
+}
+
+.h-\[500px\] {
+  height: 500px;
+}
+
+.h-\[600pxx\] {
+  height: 600pxx;
+}
+
+.h-\[600px\] {
+  height: 600px;
+}
+
+.h-\[550px\] {
+  height: 550px;
+}
+
+.h-\[420px\] {
+  height: 420px;
+}
+
+.h-\[440px\] {
+  height: 440px;
+}
+
+.h-\[450px\] {
+  height: 450px;
+}
+
+.h-\[5800px\] {
+  height: 5800px;
+}
+
 .max-h-\[500px\] {
   max-height: 500px;
 }

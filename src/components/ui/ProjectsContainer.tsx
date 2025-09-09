@@ -21,7 +21,7 @@ export default function ProjectContainer({
   return (
     <div
       suppressHydrationWarning
-      className="shadow-md shadow-[#00000012] dark:shadow-[#ffffff08] w-[100%] rounded-xl p-5 border-[1px] dark:border-neutral-800 border-slate-200 overflow-hidden flex flex-col justify-between gap-y-2"
+      className="h-[600px] shadow-md shadow-[#00000012] dark:shadow-[#ffffff08] w-[100%] rounded-xl p-5 border-[1px] dark:border-neutral-800 border-slate-200 overflow-hidden flex flex-col justify-between gap-y-2"
     >
       <ProjectImage title={title} posterImage={posterImage} />
       <h1 className="dark:text-white text-black font-bold text-xl">{title}</h1>

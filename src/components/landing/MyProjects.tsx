@@ -43,6 +43,7 @@ export default function MyProjects() {
           : ProjectsModelDataFa.map((faVal, faIndex) => {
               return (
                 <motion.div
+                className="h-[600px] "
                   key={faIndex}
                   initial="hidden"
                   whileInView={"visible"}
