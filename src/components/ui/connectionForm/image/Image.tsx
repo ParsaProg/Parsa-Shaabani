@@ -7,7 +7,7 @@ export default function ProjectImage({ title, posterImage }: any) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) {
-    return <div className="w-full h-[200px] rounded-lg" />;
+    return <div className="w-full h-[150px] rounded-lg" />;
   }
 
   return (
