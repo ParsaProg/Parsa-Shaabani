@@ -857,6 +857,10 @@ video {
   width: ;
 }
 
+.w-\[80px\] {
+  width: 80px;
+}
+
 .grow {
   flex-grow: 1;
 }
