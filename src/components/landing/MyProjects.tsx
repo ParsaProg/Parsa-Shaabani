@@ -21,24 +21,54 @@ export default function MyProjects() {
           {lang === "en" ? en.myProjects.title : fa.myProjects.title}
         </h1>
       </div>
-      <div className="mt-5 grid [@media(min-width:1240px)]:grid-cols-3 grid-cols-2 gap-5 w-auto [@media(max-width:850px)]:grid-cols-1">
+      <div className="overflow-hidden mt-5 grid [@media(min-width:1240px)]:grid-cols-3 grid-cols-2 gap-5 w-auto [@media(max-width:850px)]:grid-cols-1">
         {lang === "en"
           ? ProjectsModelDataEn.map((val, index) => {
               return (
-                <motion.div key={index} initial="hidden" whileInView={"visible"} viewport={{once: true, amount: 0.4}} variants={{
-                  "hidden": {opacity: 0, x: 20},
-                  "visible": {x: 0, opacity: 1}
-                }} 
-                transition={{delay: index * 0.1}}>
+                <motion.div
+                  key={index}
+                  initial="hidden"
+                  whileInView={"visible"}
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={{
+                    hidden: { opacity: 0, x: -50 },
+                    visible: { x: 0, opacity: 1 },
+                  }}
+                  transition={{ delay: index * 0.1 }}
+                >
                   <ProjectContainer {...val} />
                 </motion.div>
               );
             })
           : ProjectsModelDataFa.map((faVal, faIndex) => {
-              return <ProjectContainer key={faIndex} {...faVal} />;
+              return (
+                <motion.div
+                  key={faIndex}
+                  initial="hidden"
+                  whileInView={"visible"}
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={{
+                    hidden: { opacity: 0, x: -50 },
+                    visible: { x: 0, opacity: 1 },
+                  }}
+                  transition={{ delay: faIndex * 0.1 }}
+                >
+                  <ProjectContainer {...faVal} />
+                </motion.div>
+              );
             })}
       </div>
-      <div className="mt-10 flex flex-col items-center">
+      <motion.div
+        initial="hidden"
+        whileInView={"visible"}
+        viewport={{ once: true, amount: 0.5 }}
+        variants={{
+          hidden: { opacity: 0, y: -30 },
+          visible: { y: 0, opacity: 1 },
+        }}
+        transition={{ delay: 0.1 }}
+        className="mt-10 flex flex-col items-center"
+      >
         <motion.a
           href="https://github.com/ParsaProg?tab=repositories"
           target="_blank"
@@ -50,7 +80,7 @@ export default function MyProjects() {
           <Github size={18} />
           {lang === "en" ? en.myProjects.seeMore : fa.myProjects.seeMore}
         </motion.a>
-      </div>
+      </motion.div>
     </div>
   );
 }
