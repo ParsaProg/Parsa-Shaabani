@@ -21,6 +21,7 @@ export default function MySkills() {
         {TopSkillsModel.map((skill, _i) => {
           return (
             <motion.div
+            initial="hidden"
               whileInView={"visible"}
               viewport={{ once: true, amount: 0.3 }}
               variants={{
