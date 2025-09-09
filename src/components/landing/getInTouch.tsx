@@ -36,7 +36,7 @@ export default function GetInTouch() {
           hidden: { opacity: 0, x: -200, scale: 1 },
           visible: { x: 0, scale: 1, opacity: 1 },
         }}
-        transition={{ delay: 0.5 }}
+        transition={{ delay: 0.1 }}
         onSubmit={submitForm}
         className="mt-5 flex flex-col gap-y-3 p-6 rounded-xl border-[1px] dark:border-neutral-800 border-slate-200"
       >
