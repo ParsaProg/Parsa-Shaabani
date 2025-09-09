@@ -5,7 +5,7 @@ import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import { BriefcaseBusiness, Github } from "lucide-react";
 import ProjectContainer from "../ui/ProjectsContainer";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import {
   ProjectsModelDataEn,
   ProjectsModelDataFa,
@@ -24,19 +24,32 @@ export default function MyProjects() {
       <div className="mt-5 grid [@media(min-width:1240px)]:grid-cols-3 grid-cols-2 gap-5 w-auto [@media(max-width:850px)]:grid-cols-1">
         {lang === "en"
           ? ProjectsModelDataEn.map((val, index) => {
-              return <ProjectContainer key={index} {...val} />;
+              return (
+                <motion.div key={index} initial="hidden" whileInView={"visible"} viewport={{once: true, amount: 0.4}} variants={{
+                  "hidden": {opacity: 0, x: 20},
+                  "visible": {x: 0, opacity: 1}
+                }} 
+                transition={{delay: index * 0.1}}>
+                  <ProjectContainer {...val} />
+                </motion.div>
+              );
             })
           : ProjectsModelDataFa.map((faVal, faIndex) => {
               return <ProjectContainer key={faIndex} {...faVal} />;
             })}
       </div>
       <div className="mt-10 flex flex-col items-center">
-        <motion.a href="https://github.com/ParsaProg?tab=repositories" target="_blank" whileTap={{
-          scale: 0.95
-        }} className="rounded-full dark:bg-neutral-800 bg-slate-200 py-3 px-5 flex items-center gap-x-2 justify-center">
-        <Github size={18}/>
-        {lang === "en" ? en.myProjects.seeMore : fa.myProjects.seeMore}
-      </motion.a>
+        <motion.a
+          href="https://github.com/ParsaProg?tab=repositories"
+          target="_blank"
+          whileTap={{
+            scale: 0.95,
+          }}
+          className="rounded-full dark:bg-neutral-800 bg-slate-200 py-3 px-5 flex items-center gap-x-2 justify-center"
+        >
+          <Github size={18} />
+          {lang === "en" ? en.myProjects.seeMore : fa.myProjects.seeMore}
+        </motion.a>
       </div>
     </div>
   );
