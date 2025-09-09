@@ -15,10 +15,28 @@ export default function GetInTouch() {
   const { lang } = useLang();
   return (
     <div className="mt-[100px] flex flex-col gap-y-3 [@media(max-width:1200px)]:w-[95%] w-[90%] mx-auto overflow-hidden">
-      <h1 className="text-[#021322] dark:text-white font-bold text-3xl text-center w-full">
+      <motion.h1
+        initial="hidden"
+        whileInView={"visible"}
+        viewport={{ once: true, amount: 0.3 }}
+        variants={{
+          hidden: { opacity: 0, x: 50 },
+          visible: { x: 0, opacity: 1 },
+        }}
+        transition={{ delay: 0.1 }}
+        className="text-[#021322] dark:text-white font-bold text-3xl text-center w-full"
+      >
         {lang === "en" ? en.getInTouch.title : fa.getInTouch.title}
-      </h1>
-      <form
+      </motion.h1>
+      <motion.form
+        initial="hidden"
+        whileInView={"visible"}
+        viewport={{ once: true, amount: 0.3 }}
+        variants={{
+          hidden: { opacity: 0, x: -200, scale: 1 },
+          visible: { x: 0, scale: 1, opacity: 1 },
+        }}
+        transition={{ delay: 0.5 }}
         onSubmit={submitForm}
         className="mt-5 flex flex-col gap-y-3 p-6 rounded-xl border-[1px] dark:border-neutral-800 border-slate-200"
       >
@@ -83,7 +101,7 @@ export default function GetInTouch() {
             >
               <Phone size={17} />
             </a>
-             <a
+            <a
               target="_blank"
               href="https://t.me/Parsa_Shaabani"
               className="cursor-pointer transition-all duration-200 bg-transparent p-2 rounded-xl dark:hover:bg-neutral-800 hover:bg-slate-200 border-[1px] dark:border-neutral-800 border-slate-200 dark:text-neutral-200 text-slate-700"
@@ -92,7 +110,7 @@ export default function GetInTouch() {
             </a>
           </div>
         </section>
-      </form>
+      </motion.form>
     </div>
   );
 }
