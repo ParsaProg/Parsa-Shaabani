@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import { useLang } from "@/contexts/languegeContext";
 import { ReactNode } from "react";
@@ -15,6 +16,7 @@ export const ClientLayout = ({ children }: { children: ReactNode }) => {
       <Header />
       <div className="h-[50px]"></div>
       {children}
+      <Footer />
     </div>
   );
 };
