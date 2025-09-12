@@ -23,7 +23,7 @@ export default function MansooryMainLayout({ item, i }: any) {
       <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-t-xl">
         <Image
           unoptimized
-          src={""}
+          src={item.picture}
           alt={`پارسا شعبانی | Parsa Shabani - ${item.farsiTitle}`}
           fill
           sizes="100vw"
