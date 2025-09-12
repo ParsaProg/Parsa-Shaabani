@@ -32,12 +32,12 @@ export default function GalleryPage() {
         ></div>
       </div>
 
-      <div className="flex flex-col gap-y-2 w-full mx-auto">
+      <div className="flex flex-col items-center gap-y-2 w-full mx-auto">
         <div className="relative">
           <input
             placeholder={lang === "en" ? "Search..." : "جستجو کنید..."}
             type="text"
-            className={` focus:ring-2 focus:ring-offset-4 dark:ring-offset-background-dark ring-offset-background-light transition-all duration-200 dark:focus:ring-primary-dark hover:ring-primary-light w-[90%] mx-auto rounded-xl border-[1px] dark:border-neutral-800 border-slate-200 outline-none bg-transparent py-3 px-10 font-[400] text-md`}
+            className={` focus:ring-2 focus:ring-offset-4 dark:ring-offset-background-dark ring-offset-background-light transition-all duration-200 dark:focus:ring-primary-dark hover:ring-primary-light sm:w-full m-5 mx-auto rounded-xl border-[1px] dark:border-neutral-800 border-slate-200 outline-none bg-transparent py-3 px-10 font-[400] text-md`}
           />
           <Search
             size={20}
