@@ -3,6 +3,8 @@ import { useLang } from "@/contexts/languegeContext";
 import ThemeToggle from "./theme/themeToggle";
 import ChangeLang from "./lang/changeLang";
 import ConnectionDialog from "./connection/ConnectionDialog";
+import Link from "next/link";
+import MobileMenuDialog from "./mobile/MenuDialog";
 
 export default function Header() {
   const { toggleLang, lang } = useLang();
@@ -61,10 +63,29 @@ export default function Header() {
           </svg>
         </a>
         <section>
-          <ul className="flex items-center gap-x-2">
-            <ThemeToggle theme={theme!} setTheme={setTheme} />
-            <ChangeLang toggleLang={toggleLang} lang={lang}/>
-            <ConnectionDialog />
+          <ul className="flex items-center gap-x-3">
+            <div className="[@media(max-width:700px)]:hidden flex items-center gap-x-2">
+              <Link
+                href={"/gallery"}
+                className="p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-neutral-300 rounded-lg dark:text-neutral-200 text-neutral-900 cursor-pointer"
+              >
+                Gallery
+              </Link>
+              <Link
+                href={"/blog"}
+                className="p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-neutral-300 rounded-lg dark:text-neutral-300 text-neutral-700 cursor-pointer"
+              >
+                Blog
+              </Link>
+            </div>
+            <div className="flex items-center gap-x-2">
+              <ThemeToggle theme={theme!} setTheme={setTheme} />
+              <ChangeLang toggleLang={toggleLang} lang={lang} />
+              <ConnectionDialog />
+              <div className="[@media(min-width:700px)]:hidden visible">
+                <MobileMenuDialog />
+              </div>
+            </div>
           </ul>
         </section>
       </div>
