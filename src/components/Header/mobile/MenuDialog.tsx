@@ -1,6 +1,6 @@
 "use client";
 
-import { useLang } from "@/contexts/languegeContext";
+import { useLang } from "@/contexts/languageContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { ImageIcon, Menu, Rss } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -44,7 +44,7 @@ export default function MobileMenuDialog() {
               initial="hidden"
               animate="visible"
               variants={{
-                hidden: { opacity: 0, x: -50 },
+                hidden: { opacity: 0, x: lang === "en" ? -50 : 50 },
                 visible: { opacity: 1, x: 0 },
               }}
               transition={{ delay: 0.1 }}
@@ -63,7 +63,7 @@ export default function MobileMenuDialog() {
               initial="hidden"
               animate="visible"
               variants={{
-                hidden: { opacity: 0, x: -50 },
+                hidden: { opacity: 0, x: lang === "en" ? -50 : 50 },
                 visible: { opacity: 1, x: 0 },
               }}
               transition={{ delay: 0.2 }}

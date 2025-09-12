@@ -4,7 +4,7 @@ import Image from "next/image";
 import ProjectImage from "./connectionForm/image/Image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useLang } from "@/contexts/languegeContext";
+import { useLang } from "@/contexts/languageContext";
 
 export default function ProjectContainer({
   title,

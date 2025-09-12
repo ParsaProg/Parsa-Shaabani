@@ -1,5 +1,5 @@
 import { useTheme } from "next-themes";
-import { useLang } from "@/contexts/languegeContext";
+import { useLang } from "@/contexts/languageContext";
 import ThemeToggle from "./theme/themeToggle";
 import ChangeLang from "./lang/changeLang";
 import ConnectionDialog from "./connection/ConnectionDialog";

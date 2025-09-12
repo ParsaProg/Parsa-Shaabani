@@ -1,6 +1,6 @@
 "use client";
 
-import { useLang } from "@/contexts/languegeContext";
+import { useLang } from "@/contexts/languageContext";
 import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import { ExperiencesDataModelEnglish } from "@/models/experiences-model";

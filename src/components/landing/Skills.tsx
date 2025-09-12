@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import { Rocket } from "lucide-react";
-import { useLang } from "@/contexts/languegeContext";
+import { useLang } from "@/contexts/languageContext";
 import { TopSkillsModel } from "@/models/top-skills";
 
 export default function MySkills() {

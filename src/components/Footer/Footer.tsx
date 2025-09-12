@@ -1,6 +1,6 @@
 import DarkSign from "@/../public/signs/dark-sign.svg";
 import LightSign from "@/../public/signs/light-sign.svg";
-import { useLang } from "@/contexts/languegeContext";
+import { useLang } from "@/contexts/languageContext";
 import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import { Github, Instagram, Mail, Phone, SendIcon } from "lucide-react";

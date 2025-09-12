@@ -3,7 +3,7 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import TopScrollButton from "@/components/ui/TopScrollButton";
-import { useLang } from "@/contexts/languegeContext";
+import { useLang } from "@/contexts/languageContext";
 import { ReactNode } from "react";
 
 export const ClientLayout = ({ children }: { children: ReactNode }) => {

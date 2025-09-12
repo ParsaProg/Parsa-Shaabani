@@ -1,7 +1,7 @@
 "use client";
 
 import { galleryData } from "@/models/fakeGalleryData";
-import { useLang } from "@/contexts/languegeContext";
+import { useLang } from "@/contexts/languageContext";
 import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import { GalleryCatSearch } from "@/models/gallerySearchCategory";

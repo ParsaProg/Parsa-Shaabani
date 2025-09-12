@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import "./main.css";
 import { ThemeProvider } from "next-themes";
-import { LangProvider } from "@/contexts/languegeContext";
+import { LangProvider } from "@/contexts/languageContext";
 import { ClientLayout } from "./clientLayout";
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useLang } from "@/contexts/languegeContext";
+import { useLang } from "@/contexts/languageContext";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";

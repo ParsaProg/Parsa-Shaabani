@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useLang } from "@/contexts/languegeContext";
+import { useLang } from "@/contexts/languageContext";
 import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import { motion } from "framer-motion";
