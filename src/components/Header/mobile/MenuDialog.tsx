@@ -55,7 +55,7 @@ export default function MobileMenuDialog() {
                 className="w-full p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-neutral-300 rounded-md dark:text-neutral-300 text-neutral-700 cursor-pointer flex items-center gap-x-2"
               >
                 <ImageIcon size={18} />
-                Gallery
+                {lang === "en" ? "Gallery" : "گالری"}
               </Link>
             </motion.div>
             <motion.div
@@ -73,7 +73,7 @@ export default function MobileMenuDialog() {
                 className="w-full p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-neutral-300 rounded-md dark:text-neutral-300 text-neutral-700 cursor-pointer flex items-center gap-x-2"
               >
                 <Rss size={18} />
-                Blog
+                {lang === "en" ? "Blog" : "وبلاگ"}
               </Link>
             </motion.div>
           </motion.div>
