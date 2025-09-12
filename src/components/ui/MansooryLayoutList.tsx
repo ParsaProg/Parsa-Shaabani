@@ -1,6 +1,6 @@
 import Masonry from "react-masonry-css";
-import "./mansoory-style.css";
-import MansooryMainLayout from "./mansooryImage";
+import "@/styles/mansoory-style.css";
+import MansooryMainLayout from "./mansooryMainLayoyout";
 import { useEffect, useState } from "react";
 
 export default function MasonryLayoutList({ items }: any) {
