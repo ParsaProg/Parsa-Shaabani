@@ -92,7 +92,7 @@ export default function HeroSection() {
           }}
           width={800}
           height={800}
-          alt="Parsa-Shaabani"
+          alt="پارسا شعبانی | Parsa Shabani - برنامه‌نویس و توسعه دهنده"
           src={"https://avatars.githubusercontent.com/u/122119546?v=4"}
           className={`${
             isLoad

@@ -23,8 +23,8 @@ export default function MansooryMainLayout({ item, i }: any) {
     >
       <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-t-xl">
         <Image
-          src={item.picture}
-          alt={`img-${i}`}
+          src={""}
+         alt={`پارسا شعبانی | Parsa Shabani - ${item.farsiTitle}`}
           fill
           sizes="100vw"
           className={`object-cover w-full h-full 
