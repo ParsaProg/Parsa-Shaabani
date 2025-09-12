@@ -8,14 +8,11 @@ export const metadata: Metadata = {
     title: "Gallery | گالری پارسا شعبانی",
     description: "به گالری عکس‌ها و آثار هنری دیجیتال پارسا سر بزنید.",
     url: "https://parsa-shaabani.vercel.app/gallery",
-    images: [
-      {
-        url: "https://www.mywebsite.com/gallery-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Gallery preview",
-      },
-    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gallery | گالری پارسا شعبانی",
+    description: "به گالری عکس‌ها و آثار هنری دیجیتال پارسا سر بزنید.",
   },
   robots: {
     index: true,
