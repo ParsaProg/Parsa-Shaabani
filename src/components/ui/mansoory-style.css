@@ -1,0 +1,54 @@
+.my-masonry-grid {
+  display: flex;
+  margin-left: -16px; /* فاصله پایه بین ستون‌ها */
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 16px; /* فاصله بین ستون‌ها */
+  background-clip: padding-box;
+}
+
+/* فاصله بین آیتم‌ها */
+.my-masonry-grid_column > div {
+  margin-bottom: 16px;
+}
+
+/* Medium screens */
+@media (min-width: 768px) {
+  .my-masonry-grid {
+    margin-left: -20px;
+  }
+  .my-masonry-grid_column {
+    padding-left: 20px;
+  }
+  .my-masonry-grid_column > div {
+    margin-bottom: 20px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .my-masonry-grid {
+    margin-left: -24px;
+  }
+  .my-masonry-grid_column {
+    padding-left: 24px;
+  }
+  .my-masonry-grid_column > div {
+    margin-bottom: 24px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1440px) {
+  .my-masonry-grid {
+    margin-left: -32px;
+  }
+  .my-masonry-grid_column {
+    padding-left: 32px;
+  }
+  .my-masonry-grid_column > div {
+    margin-bottom: 32px;
+  }
+}
