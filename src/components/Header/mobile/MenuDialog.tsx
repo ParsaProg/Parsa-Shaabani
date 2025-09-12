@@ -35,8 +35,8 @@ export default function MobileMenuDialog() {
             animate={{ opacity: 1, scale: 1, top: "50px" }}
             exit={{ opacity: 0, scale: 0.9, top: 20 }}
             transition={{ duration: 0.1 }}
-            className={`z-[9999] absolute [@media(min-width:700px)]:hidden visible top-[50px] rounded-lg dark:bg-background-dark dark:text-white p-1 text-black w-[130px] bg-neutral-100 flex flex-col items-start 
-          dark:border-neutral-800 border-[#E2E8F0] border-[0.5px]  ${
+            className={`z-[9999] absolute [@media(min-width:700px)]:hidden visible top-[50px] rounded-lg dark:bg-background-dark dark:text-white p-1 text-black w-[130px] bg-slate-100 flex flex-col items-start 
+          dark:border-neutral-800 border-[#d0d7e1] border-[0.5px]  ${
             lang === "en" ? "right-0" : "left-0"
           }`}
           >
@@ -53,7 +53,7 @@ export default function MobileMenuDialog() {
             >
               <Link
                 href={"/gallery"}
-                className="w-full p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-neutral-300 rounded-md dark:text-neutral-300 text-neutral-700 cursor-pointer flex items-center gap-x-2"
+                className="w-full p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-slate-300 rounded-md dark:text-neutral-300 text-neutral-700 cursor-pointer flex items-center gap-x-2"
               >
                 <ImageIcon size={18} />
                 {lang === "en" ? "Gallery" : "گالری"}
@@ -72,7 +72,7 @@ export default function MobileMenuDialog() {
             >
               <Link
                 href={"/blog"}
-                className="w-full p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-neutral-300 rounded-md dark:text-neutral-300 text-neutral-700 cursor-pointer flex items-center gap-x-2"
+                className="w-full p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-slate-300 rounded-md dark:text-neutral-300 text-neutral-700 cursor-pointer flex items-center gap-x-2"
               >
                 <Rss size={18} />
                 {lang === "en" ? "Blog" : "وبلاگ"}

@@ -29,8 +29,8 @@ export default function ChangeLang({ toggleLang, lang }: any) {
             transition={{ duration: 0.1 }}
             className={`z-[9999] absolute top-[50px] ${
               lang === "en" ? "right-0" : "left-0"
-            } rounded-lg dark:bg-background-dark dark:text-white text-black bg-neutral-100 flex flex-col items-start w-[150px] gap-y-1 
-          dark:border-neutral-800 border-[#E2E8F0] border-[0.5px]`}
+            } rounded-lg dark:bg-background-dark dark:text-white text-black bg-slate-100 flex flex-col items-start w-[150px] gap-y-1 
+          dark:border-neutral-800 border-[#d0d7e1] border-[0.5px]`}
           >
             <h1
               onClick={() => {
