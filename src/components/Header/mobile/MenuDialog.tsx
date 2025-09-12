@@ -41,6 +41,7 @@ export default function MobileMenuDialog() {
           }`}
           >
             <motion.div
+              onClick={() => setIsShowDialog(false)}
               initial="hidden"
               animate="visible"
               variants={{
@@ -48,7 +49,7 @@ export default function MobileMenuDialog() {
                 visible: { opacity: 1, x: 0 },
               }}
               transition={{ delay: 0.1 }}
-              className="w-full"
+              className="w-full overflow-hidden"
             >
               <Link
                 href={"/gallery"}
@@ -59,7 +60,8 @@ export default function MobileMenuDialog() {
               </Link>
             </motion.div>
             <motion.div
-              className="w-full"
+              onClick={() => setIsShowDialog(false)}
+              className="w-full oveflow-hidden"
               initial="hidden"
               animate="visible"
               variants={{
@@ -79,17 +81,12 @@ export default function MobileMenuDialog() {
           </motion.div>
         )}
       </AnimatePresence>
-      <AnimatePresence>
-        {isShowDialog && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsShowDialog(false)}
-            className="[@media(max-width:700px)]:backdrop-blur-sm opacity-[1] z-[999] inset-0 w-full h-screen top-[80px] right-0 fixed bg-transparent"
-          ></motion.div>
-        )}
-      </AnimatePresence>
+      {isShowDialog && (
+        <div
+          onClick={() => setIsShowDialog(false)}
+          className="z-[9998] inset-0 w-full h-screen top-0 right-0 fixed bg-transparent"
+        ></div>
+      )}
     </div>
   );
 }
