@@ -10,7 +10,7 @@ export default function MansooryMainLayout({ item, i }: any) {
 
   return (
     <motion.div
-    key="img"
+      key="img"
       initial="hidden"
       whileInView={"visible"}
       transition={{ duration: 0.5, delay: i * 0.1 }}
@@ -18,13 +18,13 @@ export default function MansooryMainLayout({ item, i }: any) {
         hidden: { opacity: 0, x: 50 },
         visible: { opacity: 1, x: 0 },
       }}
-      
       className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 bg-white dark:bg-neutral-900"
     >
       <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-t-xl">
         <Image
+          unoptimized
           src={""}
-         alt={`پارسا شعبانی | Parsa Shabani - ${item.farsiTitle}`}
+          alt={`پارسا شعبانی | Parsa Shabani - ${item.farsiTitle}`}
           fill
           sizes="100vw"
           className={`object-cover w-full h-full 
