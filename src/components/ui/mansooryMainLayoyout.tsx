@@ -146,14 +146,16 @@ export default function MansooryMainLayout({ item, i, randomHeight }: any) {
           <Calendar size={18} />
           <h1>
             {lang === "en" ? "Pin date" : "تاریخ پین"}:{" "}
-            {EnToFaCn(item.date.toString())}
+            {lang === "en" ? item.date : EnToFaCn(item.date.toString())}
           </h1>
         </div>
         <div className="flex items-center gap-x-2 text-gray-600 dark:text-gray-400 text-sm">
           <Heart size={18} />
           <h1>
             {lang === "en" ? "Likes count" : "تعداد لایک"}:{" "}
-            {EnToFaCn(likesCount.toString())}
+            {lang === "en"
+              ? likesCount.toString()
+              : EnToFaCn(likesCount.toString())}
           </h1>
         </div>
       </div>
