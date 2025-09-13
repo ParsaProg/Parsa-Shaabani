@@ -63,7 +63,7 @@ export const galleryData: GalleryItem[] = [
     likes: 60
   },
   {
-    picture: "https://static.digiato.com/digiato/2020/02/Smart_ways_to_break_your_social_media_addiction-1024x681.jpg",
+    picture: "https://github.com/ParsaProg/Parsa-Shaabani-Assets/blob/main/aiony-haust-3TLl_97HNJo-unsplash.jpg?raw=true",
     age: 5,
     enCategory: "Social relations",
     faCategory: "روابط اجتماعی",
