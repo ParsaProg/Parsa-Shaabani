@@ -20,4 +20,19 @@ export default class ApiService {
 
     return response.json();
   }
+
+  async putData(body: any) {
+    const userPutResponse = await fetch(`${this.apiURl}`, {
+      method: "PUT",
+      body: body,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.token}`,
+      },
+    });
+    if (!userPutResponse.ok) {
+      throw new Error("Can't put user");
+    }
+    return userPutResponse.json();
+  }
 }

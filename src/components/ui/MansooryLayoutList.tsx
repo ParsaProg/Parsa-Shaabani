@@ -12,7 +12,7 @@ export default function MasonryLayoutList({ items }: any) {
   useEffect(() => {
     const timer = setTimeout(() => setFakeLoad(true), 2000);
 
-    //! generate random heights on client
+    //! generate random heights on client 
     const randomHeights = Array(16)
       .fill(0)
       .map(() => Math.floor(Math.random() * (500 - 250 + 1)) + 250);

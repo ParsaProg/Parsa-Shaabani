@@ -2,7 +2,7 @@
 
 import { useLang } from "@/contexts/languageContext";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Calendar,
@@ -13,9 +13,51 @@ import {
   Upload,
 } from "lucide-react";
 import EnToFaCn from "@/lib/convertToFarsiNumbers";
+import ApiService from "@/services/GalleryClass";
+
 export default function MansooryMainLayout({ item, i, randomHeight }: any) {
+  const [likeAccess, setLikeAccess] = useState<string | null>(null);
+  useEffect(() => {
+    const canLike = localStorage.getItem("likeAccess");
+    if (canLike === undefined || canLike === null) {
+      setLikeAccess("true");
+    } else {
+      setLikeAccess("false");
+    }
+  }, []);
+  const [likesCount, setLikesCount] = useState<number>(Number(item.likes));
+  const Api = new ApiService(
+    `https://parsa-shaabani-backend.vercel.app/gallery/${item.id}`,
+    "honoParsaPortfolioBackend54"
+  );
   const { lang } = useLang();
   const [isLoad, setIsLoad] = useState(false);
+
+  const likeFunction = () => {
+    if (likeAccess === "true") {
+      localStorage.setItem("likeAccess", "false");
+      setLikeAccess("false");
+      const currentLikes = Number(item.likes);
+      const putLike = currentLikes + 1;
+      setLikesCount(likesCount + 1);
+      Api.putData(
+        JSON.stringify({
+          picture: item.picture,
+          age: item.age,
+          enCategory: item.enCategory,
+          faCategory: item.faCategory,
+          farsiTitle: item.farsiTitle,
+          englishTitle: item.englishTitle,
+          date: item.date,
+          faDesc: item.faDesc,
+          enDesc: item.enDesc,
+          likes: putLike,
+        })
+      ).then(() => {
+        console.log("updated gallery card");
+      });
+    }
+  };
 
   return (
     <motion.div
@@ -47,8 +89,16 @@ export default function MansooryMainLayout({ item, i, randomHeight }: any) {
             </div>
           </div>
           <div className="flex gap-x-2">
-            <div className="hover:text-red-400 transition-colors duration-200 bg-white text-black rounded-full p-3">
-              <Heart size={18} />
+            <div
+              onClick={likeFunction}
+              className={`${
+                likeAccess === "true" && "hover:text-red-400"
+              } transition-colors duration-200 bg-white text-black rounded-full p-3`}
+            >
+              <Heart
+                size={18}
+                fill={likeAccess === "false" ? "#000" : "transparent"}
+              />
             </div>
             <div className="hover:text-blue-400 transition-colors duration-200 bg-white text-black rounded-full p-3">
               <Download size={18} />
@@ -95,13 +145,15 @@ export default function MansooryMainLayout({ item, i, randomHeight }: any) {
         <div className="flex items-center gap-x-2 text-gray-600 dark:text-gray-400 text-sm">
           <Calendar size={18} />
           <h1>
-            {lang === "en" ? "Pin date" : "تاریخ پین"}: {EnToFaCn(item.date.toString())}
+            {lang === "en" ? "Pin date" : "تاریخ پین"}:{" "}
+            {EnToFaCn(item.date.toString())}
           </h1>
         </div>
         <div className="flex items-center gap-x-2 text-gray-600 dark:text-gray-400 text-sm">
           <Heart size={18} />
           <h1>
-            {lang === "en" ? "Likes count" : "تعداد لایک"}: {EnToFaCn(item.likes.toString())}
+            {lang === "en" ? "Likes count" : "تعداد لایک"}:{" "}
+            {EnToFaCn(likesCount.toString())}
           </h1>
         </div>
       </div>
