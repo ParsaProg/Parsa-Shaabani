@@ -4,10 +4,12 @@ import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import TopScrollButton from "@/components/ui/TopScrollButton";
 import { useLang } from "@/contexts/languageContext";
-import { ReactNode } from "react";
+import SmoothScrollLayout from "@/lib/smooth-scroll";
+import Lenis from "@studio-freight/lenis/types";
+import { ReactNode, useEffect } from "react";
 
 export const ClientLayout = ({ children }: { children: ReactNode }) => {
-  const { lang } = useLang(); // get current language
+  const { lang } = useLang(); // get current languageAnimationFrame(raf);
 
   return (
     <div
@@ -17,7 +19,7 @@ export const ClientLayout = ({ children }: { children: ReactNode }) => {
       <TopScrollButton />
       <Header />
       <div className="h-[50px]"></div>
-      {children}
+      <SmoothScrollLayout>{children}</SmoothScrollLayout>
       <Footer />
     </div>
   );
