@@ -5,6 +5,10 @@ import ChangeLang from "./lang/changeLang";
 import ConnectionDialog from "./connection/ConnectionDialog";
 import Link from "next/link";
 import MobileMenuDialog from "./mobile/MenuDialog";
+import {motion} from "framer-motion";
+import { Github, Linkedin, MailIcon, PhoneCall } from "lucide-react";
+import en from "@/langs/en.json";
+import fa from "@/langs/fa.json"
 
 export default function Header() {
   const { toggleLang, lang } = useLang();
@@ -85,6 +89,7 @@ export default function Header() {
               <div className="[@media(min-width:700px)]:hidden visible">
                 <MobileMenuDialog />
               </div>
+              
             </div>
           </ul>
         </section>
