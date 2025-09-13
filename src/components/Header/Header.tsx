@@ -67,15 +67,15 @@ export default function Header() {
             <div className="[@media(max-width:700px)]:hidden flex items-center gap-x-2">
               <Link
                 href={"/gallery"}
-                className="p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-neutral-300 rounded-lg dark:text-neutral-200 text-neutral-900 cursor-pointer"
+                className="text-sm p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-neutral-300 rounded-lg dark:text-neutral-200 text-neutral-900 cursor-pointer"
               >
-                Gallery
+                {lang === "en" ? "Gallery" : "گالری"}
               </Link>
               <Link
                 href={"/blog"}
-                className="p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-neutral-300 rounded-lg dark:text-neutral-300 text-neutral-700 cursor-pointer"
+                className="text-sm p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-neutral-300 rounded-lg dark:text-neutral-300 text-neutral-700 cursor-pointer"
               >
-                Blog
+                {lang === "en" ? "Blog" : "وبلاگ"}
               </Link>
             </div>
             <div className="flex items-center gap-x-2">
