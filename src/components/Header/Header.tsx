@@ -89,7 +89,6 @@ export default function Header() {
               <div className="[@media(min-width:700px)]:hidden visible">
                 <MobileMenuDialog />
               </div>
-              
             </div>
           </ul>
         </section>
