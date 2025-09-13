@@ -90,6 +90,7 @@ export default function HeroSection() {
           onLoad={() => {
             setIsLoad(true);
           }}
+          draggable={false}
           width={800}
           height={800}
           alt="پارسا شعبانی | Parsa Shabani - برنامه‌نویس و توسعه دهنده"
