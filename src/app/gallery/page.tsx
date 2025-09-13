@@ -50,7 +50,9 @@ export default function GalleryPage() {
           <GalleryCatSearch lang={lang} />
         </ul>
       </div>
-      <span className="w-full my-10 h-[0.3px] dark:bg-neutral-700 bg-slate-200"></span>
+      <span className="text-center font-[400] text-md mt-5 dark:text-neutral-300 text-slate-700">
+        {galleryData.length} {lang === "en"? "Pins found": "پین پیدا شد"}
+      </span>
       <MansooryLayoutList items={galleryData} />
     </div>
   );
