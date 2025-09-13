@@ -1,13 +1,26 @@
 "use client";
-
-import { galleryData } from "@/models/fakeGalleryData";
 import { useLang } from "@/contexts/languageContext";
 import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import { GalleryCatSearch } from "@/models/gallerySearchCategory";
-import { ArrowDown, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import MansooryLayoutList from "@/components/ui/MansooryLayoutList";
+import { useEffect, useState } from "react";
+import { GalleryItem } from "@/types/GalleryItems";
+import ApiService from "@/services/GalleryClass";
+
+const apiService = new ApiService(
+  "https://parsa-shaabani-backend.vercel.app/messages",
+  "honoParsaPortfolioBackend54"
+);
+
 export default function GalleryPage() {
+  const [galleryData, setGalleryData] = useState<GalleryItem[]>([]);
+  useEffect(() => {
+    apiService.getData().then(galleryData => {
+      console.log(galleryData);
+    });
+  }, []);
   const { lang } = useLang();
   return (
     <div className=" overflow-hidden flex flex-col gap-y-5 [@media(max-width:1200px)]:w-[90%] w-[90%] mt-[80px] mx-auto ">
@@ -51,7 +64,7 @@ export default function GalleryPage() {
         </ul>
       </div>
       <span className="text-center font-[400] text-md mt-5 dark:text-neutral-300 text-slate-700">
-        {galleryData.length} {lang === "en"? "Pins found": "پین پیدا شد"}
+        {galleryData.length} {lang === "en" ? "Pins found" : "پین پیدا شد"}
       </span>
       <MansooryLayoutList items={galleryData} />
     </div>
