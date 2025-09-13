@@ -92,6 +92,7 @@ export default function ConnectionDialog() {
       <AnimatePresence>
         {isShowDialog && (
           <motion.div
+          dir={lang === "en"? "ltr": "rtl"}
             initial={{ opacity: 0, bottom: -50 }}
             animate={{ opacity: 1, bottom: 0 }}
             exit={{ opacity: 0, bottom: -50 }}
