@@ -1,46 +1,42 @@
-import Masonry from "react-masonry-css";
 import "@/styles/mansoory-style.css";
 import MansooryMainLayout from "./mansooryMainLayoyout";
 import { useEffect, useState } from "react";
 
 export default function MasonryLayoutList({ items }: any) {
   const [fakeLoad, setFakeLoad] = useState<boolean>(false);
-  const [heights, setHeights] = useState<number[]>([]); // heights for skeleton
-
-  const breakpoints = {
-    default: 4,
-    1100: 3,
-    700: 2,
-    500: 1,
-  };
+  const [heights, setHeights] = useState<number[]>([]);
+  const [randomMainLayoutHeight, setRandomMainLayoutHeight] = useState<
+    number[] | null
+  >(null);
 
   useEffect(() => {
-    // fake load
     const timer = setTimeout(() => setFakeLoad(true), 2000);
 
-    // generate random heights on client
+    //! generate random heights on client
     const randomHeights = Array(16)
       .fill(0)
       .map(() => Math.floor(Math.random() * (500 - 250 + 1)) + 250);
     setHeights(randomHeights);
 
+    //? Generate random height number for main layout structure
+    const randomMainLayout = Array<number>(items.length)
+      .fill(0)
+      .map(() => Math.floor(Math.random() * (500 - 250 + 1)) + 250);
+
+    setRandomMainLayoutHeight(randomMainLayout);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <Masonry
-      breakpointCols={breakpoints}
-      className="my-masonry-grid"
-      columnClassName="my-masonry-grid_column"
-    >
+    <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-5 overflow-visible p-5">
       {fakeLoad
         ? items.map((item: any, i: number) => (
-            <MansooryMainLayout key={i} i={i} item={item} />
+            <MansooryMainLayout key={i} i={i} item={item} randomHeight={randomMainLayoutHeight}/>
           ))
         : heights.map((h, index) => (
             <div
               key={index}
-              className="rounded-xl overflow-hidden shadow-md bg-white dark:bg-neutral-900"
+              className="rounded-xl overflow-hidden shadow-md bg-white dark:bg-neutral-900 mb-5"
             >
               {/* Skeleton image */}
               <div
@@ -55,6 +51,6 @@ export default function MasonryLayoutList({ items }: any) {
               </div>
             </div>
           ))}
-    </Masonry>
+    </div>
   );
 }
