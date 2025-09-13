@@ -4,30 +4,69 @@ import { useLang } from "@/contexts/languageContext";
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-export default function MansooryMainLayout({ item, i }: any) {
+import {
+  Calendar,
+  Download,
+  Eye,
+  Heart,
+  LayoutTemplate,
+  Upload,
+} from "lucide-react";
+import EnToFaCn from "@/lib/convertToFarsiNumbers";
+export default function MansooryMainLayout({ item, i, randomHeight }: any) {
   const { lang } = useLang();
   const [isLoad, setIsLoad] = useState(false);
 
   return (
     <motion.div
-      key="img"
+      whileHover={{
+        scale: 1.02,
+        transition: { delay: 0, duration: 0.05 },
+      }}
       initial="hidden"
       whileInView={"visible"}
-      transition={{ duration: 0.5, delay: i * 0.1 }}
+      transition={{ delay: i * 0.03 }}
       variants={{
-        hidden: { opacity: 0, x: 50 },
-        visible: { opacity: 1, x: 0 },
+        hidden: { opacity: 0, y: 40 },
+        visible: { opacity: 1, y: 0 },
       }}
-      className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 bg-white dark:bg-neutral-900"
+      className={`cursor-pointer group rounded-xl overflow-hidden shadow-md mb-5 ${
+        lang === "en" ? "bg-gradient-to-r" : "bg-gradient-to-l"
+      } duration-300 bg-white dark:from-[#1A2433] dark:to-[#111929]`}
     >
-      <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-t-xl">
+      <div className="relative w-full h-auto overflow-hidden rounded-t-xl">
+        <div className="hidden group-hover:visible absolute top-0 w-full h-full rounded-xl bg-gray-700 backdrop-blur-lg z-[9999] p-3 opacity-[0.3] blur-xl"></div>
+        <div className="transition-opacity duration-200 opacity-0 group-hover:opacity-100 absolute flex flex-col p-3  justify-between items-start w-full h-full z-[9999]">
+          <div className="flex w-full justify-between items-center">
+            <div className="text-white bg-[#0007] rounded-full px-3 py-2 text-[13px] flex items-center gap-x-1">
+              <Eye size={13} /> {lang === "en" ? "View" : "مشاهده"}
+            </div>
+            <div className="flex items-center rounded-full text-[13px] bg-white text-black p-2 gap-x-2">
+              <LayoutTemplate size={15} />
+              {lang === "en" ? item.enCategory : item.faCategory}
+            </div>
+          </div>
+          <div className="flex gap-x-2">
+            <div className="hover:text-red-400 transition-colors duration-200 bg-white text-black rounded-full p-3">
+              <Heart size={18} />
+            </div>
+            <div className="hover:text-blue-400 transition-colors duration-200 bg-white text-black rounded-full p-3">
+              <Download size={18} />
+            </div>
+            <div className="hover:text-blue-600 transition-colors duration-200 bg-white text-black rounded-full p-3">
+              <Upload size={18} />
+            </div>
+          </div>
+        </div>
         <Image
+          draggable={false}
           unoptimized
           src={item.picture}
           alt={`پارسا شعبانی | Parsa Shabani - ${item.farsiTitle}`}
-          fill
+          width={800}
+          height={800}
           sizes="100vw"
-          className={`object-cover w-full h-full 
+          className={`group-hover:blur-[2px] group-hover:scale-[1.1] object-cover w-auto h-auto 
             ${
               isLoad
                 ? "blur-0 grayscale-0 scale-100 opacity-100"
@@ -36,15 +75,35 @@ export default function MansooryMainLayout({ item, i }: any) {
             transition-all duration-700 ease-out`}
           onLoad={() => setIsLoad(true)}
         />
+        {!isLoad && (
+          <div
+            style={{
+              height: randomHeight[i],
+            }}
+            className="w-full"
+          ></div>
+        )}
       </div>
 
-      <div className="p-3">
-        <h3 className="text-base font-semibold mb-1">
+      <div className="p-3 mt-1 flex flex-col gap-y-3">
+        <h3 className="group-hover:text-blue-500 transition-all duration-200 ext-base font-semibold">
           {lang === "en" ? item.englishTitle : item.farsiTitle}
         </h3>
-        <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
+        <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
           {lang === "en" ? item.enDesc : item.faDesc}
         </p>
+        <div className="flex items-center gap-x-2 text-gray-600 dark:text-gray-400 text-sm">
+          <Calendar size={18} />
+          <h1>
+            {lang === "en" ? "Pin date" : "تاریخ پین"}: {EnToFaCn(item.date.toString())}
+          </h1>
+        </div>
+        <div className="flex items-center gap-x-2 text-gray-600 dark:text-gray-400 text-sm">
+          <Heart size={18} />
+          <h1>
+            {lang === "en" ? "Likes count" : "تعداد لایک"}: {EnToFaCn(item.likes.toString())}
+          </h1>
+        </div>
       </div>
     </motion.div>
   );
