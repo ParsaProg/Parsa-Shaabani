@@ -2,6 +2,16 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.png",
+  },
   title: "Gallery | گالری پارسا شعبانی",
   description: "به گالری عکس‌ها و آثار هنری دیجیتال پارسا سر بزنید.",
   openGraph: {
