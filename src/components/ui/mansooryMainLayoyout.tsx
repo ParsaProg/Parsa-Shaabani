@@ -78,7 +78,7 @@ export default function MansooryMainLayout({ item, i, randomHeight }: any) {
     >
       <div className="relative w-full h-auto overflow-hidden rounded-t-xl">
         <div className="hidden group-hover:visible absolute top-0 w-full h-full rounded-xl bg-gray-700 backdrop-blur-lg z-[9999] p-3 opacity-[0.3] blur-xl"></div>
-        <div className="transition-opacity duration-200 opacity-0 group-hover:opacity-100 absolute flex flex-col p-3  justify-between items-start w-full h-full z-[9999]">
+        <div className="transition-opacity duration-200 opacity-0 group-hover:opacity-100 absolute flex flex-col p-3  justify-between items-start w-full h-full z-[999]">
           <div className="flex w-full justify-between items-center">
             <div className="text-white bg-[#0007] rounded-full px-3 py-2 text-[13px] flex items-center gap-x-1">
               <Eye size={13} /> {lang === "en" ? "View" : "مشاهده"}
