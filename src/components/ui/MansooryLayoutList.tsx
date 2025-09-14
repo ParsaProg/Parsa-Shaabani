@@ -3,14 +3,12 @@ import MansooryMainLayout from "./mansooryMainLayoyout";
 import { useEffect, useState } from "react";
 
 export default function MasonryLayoutList({ items }: any) {
-  const [fakeLoad, setFakeLoad] = useState<boolean>(false);
   const [heights, setHeights] = useState<number[]>([]);
   const [randomMainLayoutHeight, setRandomMainLayoutHeight] = useState<
     number[] | null
   >(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setFakeLoad(true), 2000);
 
     //! generate random heights on client 
     const randomHeights = Array(16)
@@ -24,12 +22,11 @@ export default function MasonryLayoutList({ items }: any) {
       .map(() => Math.floor(Math.random() * (500 - 250 + 1)) + 250);
 
     setRandomMainLayoutHeight(randomMainLayout);
-    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-5 overflow-visible p-5">
-      {fakeLoad
+      {items.length > 0
         ? items.map((item: any, i: number) => (
             <MansooryMainLayout key={i} i={i} item={item} randomHeight={randomMainLayoutHeight}/>
           ))
