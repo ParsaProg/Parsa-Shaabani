@@ -6,6 +6,16 @@ import { LangProvider } from "@/contexts/languageContext";
 import { ClientLayout } from "./clientLayout";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.png",
+  },
   title: "Parsa Shaabani | پارسا شعبانی",
   description:
     "پارسا شعبانی، برنامه نویس و توسعه دهندۀ فرانت‌اند، رزومه‌ها و پروژه‌ها، علاقه‌مند به تکنولوژی و ورزش مکرر",
