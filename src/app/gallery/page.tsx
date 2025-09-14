@@ -46,7 +46,7 @@ export default function GalleryPage() {
       </div>
 
       <div className="flex flex-col items-center gap-y-2 w-full mx-auto">
-        <div className="relative w-[90%] mx-auto">
+        {/* <div className="relative w-[90%] mx-auto">
           <input
             placeholder={lang === "en" ? "Search..." : "جستجو کنید..."}
             type="text"
@@ -58,7 +58,7 @@ export default function GalleryPage() {
               lang === "en" ? "left-3" : "right-3"
             } dark:text-neutral-300 text-slate-600 absolute top-[50%] translate-y-[-50%]`}
           />
-        </div>
+        </div> */}
         <ul className="mt-5 flex flex-wrap w-full items-center gap-3  mx-auto justify-center">
           <GalleryCatSearch lang={lang} />
         </ul>
