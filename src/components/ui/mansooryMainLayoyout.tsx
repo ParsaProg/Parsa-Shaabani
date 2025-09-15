@@ -18,11 +18,17 @@ import ApiService from "@/services/GalleryClass";
 export default function MansooryMainLayout({ item, i, randomHeight }: any) {
   const [likeAccess, setLikeAccess] = useState<string | null>(null);
   useEffect(() => {
-    const canLike = localStorage.getItem("likeAccess");
-    if (canLike === undefined || canLike === null) {
+    const canLike = localStorage.getItem("likes");
+    if (!canLike) {
+      localStorage.setItem("likes", JSON.stringify([]));
       setLikeAccess("true");
     } else {
-      setLikeAccess("false");
+      const localLikes = JSON.parse(localStorage.getItem("likes")!);
+      localLikes.length > 0
+        ? localLikes.find((v: any) => v.id === item.id)
+          ? setLikeAccess("false")
+          : setLikeAccess("true")
+        : setLikeAccess("true");
     }
   }, []);
   const [likesCount, setLikesCount] = useState<number>(Number(item.likes));
@@ -30,13 +36,30 @@ export default function MansooryMainLayout({ item, i, randomHeight }: any) {
     `https://parsa-shaabani-backend.vercel.app/gallery/${item.id}`,
     "honoParsaPortfolioBackend54"
   );
+  const GetApi = new ApiService(
+    `https://parsa-shaabani-backend.vercel.app/gallery`,
+    "honoParsaPortfolioBackend54"
+  );
   const { lang } = useLang();
   const [isLoad, setIsLoad] = useState(false);
 
   const likeFunction = () => {
     if (likeAccess === "true") {
-      localStorage.setItem("likeAccess", "false");
-      setLikeAccess("false");
+      try {
+        const localLikes = JSON.parse(localStorage.getItem("likes")!);
+        localStorage.setItem(
+          "likes",
+          JSON.stringify([...localLikes, { id: item.id }])
+        );
+      } catch {
+        localStorage.setItem("likes", JSON.stringify([]));
+        const localLikes = JSON.parse(localStorage.getItem("likes")!);
+        localStorage.setItem(
+          "likes",
+          JSON.stringify([...localLikes, { id: item.id }])
+        );
+      }
+
       const currentLikes = Number(item.likes);
       const putLike = currentLikes + 1;
       setLikesCount(likesCount + 1);
@@ -54,7 +77,42 @@ export default function MansooryMainLayout({ item, i, randomHeight }: any) {
           likes: putLike,
         })
       ).then(() => {
-        console.log("updated gallery card");
+        setLikeAccess("false");
+      });
+    } else {
+      const localLikes = JSON.parse(localStorage.getItem("likes")!);
+      localLikes.map((v: any) => {
+        if (v.id === item.id) {
+          const newLikesList = localLikes.filter((v: any) => v.id !== item.id);
+          localStorage.setItem("likes", JSON.stringify(newLikesList));
+        }
+      });
+      GetApi.getData().then((res) => {
+        let mainPin;
+        res.map((v: any, i: number) => {
+          if (v.id === item.id) {
+            mainPin = res[i];
+          }
+        });
+        const currentLikes = Number(mainPin!.likes);
+        const putLike = currentLikes - 1;
+        setLikesCount(likesCount - 1);
+        Api.putData(
+          JSON.stringify({
+            picture: item.picture,
+            age: item.age,
+            enCategory: item.enCategory,
+            faCategory: item.faCategory,
+            farsiTitle: item.farsiTitle,
+            englishTitle: item.englishTitle,
+            date: item.date,
+            faDesc: item.faDesc,
+            enDesc: item.enDesc,
+            likes: putLike,
+          })
+        ).then(() => {
+          setLikeAccess("true");
+        });
       });
     }
   };
@@ -95,10 +153,16 @@ export default function MansooryMainLayout({ item, i, randomHeight }: any) {
                 likeAccess === "true" && "hover:text-red-400"
               } transition-colors duration-200 bg-white text-black rounded-full p-3`}
             >
-              <Heart
-                size={18}
-                fill={likeAccess === "false" ? "#000" : "transparent"}
-              />
+              <motion.div
+                whileTap={{
+                  scale: 1.1,
+                }}
+              >
+                <Heart
+                  size={18}
+                  fill={likeAccess === "false" ? "#000" : "transparent"}
+                />
+              </motion.div>
             </div>
             <div className="hover:text-blue-400 transition-colors duration-200 bg-white text-black rounded-full p-3">
               <Download size={18} />
