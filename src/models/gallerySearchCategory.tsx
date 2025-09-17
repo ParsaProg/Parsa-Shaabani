@@ -7,6 +7,7 @@ import {
   LandPlot,
   Users,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
 export default interface GallerySeacrhCategory {
@@ -145,11 +146,43 @@ const GalleryCatSearchFa: GallerySeacrhCategory[] = [
     ),
   },
 ];
-export function GalleryCatSearch({ lang }: { lang: string }) {
+export function GalleryCatSearch({
+  lang,
+  FilterGalleryData,
+  setQuerySearch,
+}: {
+  lang: string;
+  FilterGalleryData: any;
+  setQuerySearch: (v: string) => void;
+}) {
+  const router = useRouter();
   return lang === "en"
     ? GalleryCatSearchEn.map((cat, index) => {
         return (
           <div
+            onClick={() => {
+              setQuerySearch(
+                window.location.search.substring(
+                  window.location.search.indexOf("=") + 1
+                )
+              );
+              router.push(
+                `/gallery?search=${
+                  index === 3
+                    ? "computer-engineering"
+                    : index === 4
+                    ? "social-relations"
+                    : cat.catName.toLowerCase()
+                }`
+              );
+              FilterGalleryData(
+                cat.catName === "social-relations"
+                  ? "Social Relations"
+                  : cat.catName === "computer-engineering"
+                  ? "Computer Engineering"
+                  : cat.catName
+              );
+            }}
             key={index}
             className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-3 dark:bg-neutral-900 bg-slate-100 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-white text-slate700`}
           >
@@ -162,6 +195,30 @@ export function GalleryCatSearch({ lang }: { lang: string }) {
     : GalleryCatSearchFa.map((cat, index) => {
         return (
           <div
+            onClick={() => {
+              setQuerySearch(
+                window.location.search.substring(
+                  window.location.search.indexOf("=") + 1
+                )
+              );
+              router.push(
+                `/gallery?search=${
+                  index === 3
+                    ? "computer-engineering"
+                    : index === 4
+                    ? "social-relations"
+                    : GalleryCatSearchEn[index].catName.toLowerCase()
+                }`
+              );
+
+              FilterGalleryData(
+                GalleryCatSearchEn[index].catName === "social-relations"
+                  ? "Social Relations"
+                  : GalleryCatSearchEn[index].catName === "computer-engineering"
+                  ? "Computer Engineering"
+                  : GalleryCatSearchEn[index].catName
+              );
+            }}
             key={index}
             className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 bg-slate-100 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
           >

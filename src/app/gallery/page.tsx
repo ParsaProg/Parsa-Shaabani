@@ -3,11 +3,12 @@ import { useLang } from "@/contexts/languageContext";
 import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import { GalleryCatSearch } from "@/models/gallerySearchCategory";
-import { Search } from "lucide-react";
+import { CatIcon, Search } from "lucide-react";
 import MansooryLayoutList from "@/components/ui/MansooryLayoutList";
 import { useEffect, useState } from "react";
 import { GalleryItem } from "@/types/GalleryItems";
 import ApiService from "@/services/GalleryClass";
+import { usePathname, useRouter } from "next/navigation";
 
 const apiService = new ApiService(
   "https://parsa-shaabani-backend.vercel.app/gallery",
@@ -15,15 +16,58 @@ const apiService = new ApiService(
 );
 
 export default function GalleryPage() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [querySearch, setQuerySearch] = useState<string>("");
   const [galleryData, setGalleryData] = useState<GalleryItem[]>([]);
+  const [filtredGalleryData, setFiltredGalleryData] = useState<
+    GalleryItem[] | undefined
+  >([]);
+
+  const clearQuery = () => {
+    // Replace current URL with query-less version
+    router.replace(pathname);
+  };
+
   useEffect(() => {
     apiService.getData().then((galleryApiData) => {
       setGalleryData(galleryApiData);
     });
   }, []);
+
+  useEffect(() => {
+    const query = window.location.search.substring(
+      window.location.search.indexOf("=") + 1
+    );
+
+    setQuerySearch(query);
+
+    if (query && galleryData.length > 0) {
+      setQuerySearch(
+        window.location.search.substring(
+          window.location.search.indexOf("=") + 1
+        )
+      );
+      FilterGalleryData(
+        query === "social-relations"
+          ? "Social Relations"
+          : query === "computer-engineering"
+          ? "Computer Engineering"
+          : query
+      );
+    }
+  }, [galleryData, querySearch]);
+
+  function FilterGalleryData(cat: string) {
+    const filteredGallery = galleryData.filter(
+      (v) => v.enCategory.toLowerCase() === cat.toLowerCase()
+    );
+    setFiltredGalleryData(filteredGallery);
+  }
+
   const { lang } = useLang();
   return (
-    <div className="flex flex-col gap-y-5 [@media(max-width:1200px)]:w-[90%] w-[90%] mt-[80px] mx-auto ">
+    <div className="select-none flex flex-col gap-y-5 [@media(max-width:1200px)]:w-[90%] w-[90%] mt-[80px] mx-auto ">
       <h1 className="font-bold text-center text-5xl">
         {lang === "en" ? en.gallery.title : fa.gallery.title}
       </h1>
@@ -60,13 +104,28 @@ export default function GalleryPage() {
           />
         </div> */}
         <ul className="mt-5 flex flex-wrap w-full items-center gap-3  mx-auto justify-center">
-          <GalleryCatSearch lang={lang} />
+          <div
+            onClick={() => {
+              setQuerySearch("");
+              clearQuery();
+            }}
+            className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 bg-slate-100 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
+          >
+            <CatIcon
+              size={18}
+              className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+            />{" "}
+            All
+          </div>
+          <GalleryCatSearch setQuerySearch={setQuerySearch} FilterGalleryData={FilterGalleryData} lang={lang} />
         </ul>
       </div>
       <span className="text-center font-[400] text-md mt-5 dark:text-neutral-300 text-slate-700">
         {galleryData.length} {lang === "en" ? "Pins found" : "پین پیدا شد"}
       </span>
-      <MansooryLayoutList items={galleryData} />
+      <MansooryLayoutList
+        items={querySearch === "" ? galleryData : filtredGalleryData}
+      />
     </div>
   );
 }
