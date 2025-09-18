@@ -144,7 +144,7 @@ export default function GalleryPage() {
         </ul>
       </div>
       <span className="text-center font-[400] text-md mt-5 dark:text-neutral-300 text-slate-700">
-        {galleryData.length} {lang === "en" ? "Pins found" : "پین پیدا شد"}
+        {filtredGalleryData!.length} {lang === "en" ? "Pins found" : "پین پیدا شد"}
       </span>
       <MansooryLayoutList items={filtredGalleryData} />
     </div>
