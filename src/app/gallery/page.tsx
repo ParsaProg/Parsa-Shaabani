@@ -16,9 +16,11 @@ const apiService = new ApiService(
 );
 
 export default function GalleryPage() {
+  const [activeButton, setActiveButton] = useState<string | undefined>(
+    undefined
+  );
   const router = useRouter();
   const pathname = usePathname();
-  const [querySearch, setQuerySearch] = useState<string>("");
   const [galleryData, setGalleryData] = useState<GalleryItem[]>([]);
   const [filtredGalleryData, setFiltredGalleryData] = useState<
     GalleryItem[] | undefined
@@ -32,6 +34,7 @@ export default function GalleryPage() {
   useEffect(() => {
     apiService.getData().then((galleryApiData) => {
       setGalleryData(galleryApiData);
+      setFiltredGalleryData(galleryApiData);
     });
   }, []);
 
@@ -40,14 +43,15 @@ export default function GalleryPage() {
       window.location.search.indexOf("=") + 1
     );
 
-    setQuerySearch(query);
-
     if (query && galleryData.length > 0) {
-      setQuerySearch(
-        window.location.search.substring(
-          window.location.search.indexOf("=") + 1
-        )
+      setActiveButton(
+        query === "social-relations"
+          ? "social relations"
+          : query === "computer-engineering"
+          ? "computer engineering"
+          : query.toLowerCase()
       );
+
       FilterGalleryData(
         query === "social-relations"
           ? "Social Relations"
@@ -55,8 +59,10 @@ export default function GalleryPage() {
           ? "Computer Engineering"
           : query
       );
+    } else if(!query) {
+      setActiveButton("all");
     }
-  }, [galleryData, querySearch]);
+  }, [galleryData]);
 
   function FilterGalleryData(cat: string) {
     const filteredGallery = galleryData.filter(
@@ -67,7 +73,7 @@ export default function GalleryPage() {
 
   const { lang } = useLang();
   return (
-    <div className="select-none flex flex-col gap-y-5 [@media(max-width:1200px)]:w-[90%] w-[90%] mt-[80px] mx-auto ">
+    <div className="select-none flex flex-col gap-y-5 [@media(max-width:1200px)]:w-[90%] w-[90%] mt-[80px] mx-auto">
       <h1 className="font-bold text-center text-5xl">
         {lang === "en" ? en.gallery.title : fa.gallery.title}
       </h1>
@@ -106,26 +112,37 @@ export default function GalleryPage() {
         <ul className="mt-5 flex flex-wrap w-full items-center gap-3  mx-auto justify-center">
           <div
             onClick={() => {
-              setQuerySearch("");
               clearQuery();
+              setFiltredGalleryData(galleryData);
+              setActiveButton("all");
             }}
-            className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 bg-slate-100 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
+            className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white ${
+              activeButton === "all" &&
+              "dark:bg-primary-dark bg-primary-light dark:text-black text-white"
+            } transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 bg-slate-100 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
           >
             <CatIcon
               size={18}
-              className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+              className={`${
+                activeButton === "all"
+                  ? "dark:text-black text-white"
+                  : "dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white"
+              } transition-all duration-200`}
             />{" "}
-            All
+            {lang === "en" ? "All": "همه"}
           </div>
-          <GalleryCatSearch setQuerySearch={setQuerySearch} FilterGalleryData={FilterGalleryData} lang={lang} />
+          <GalleryCatSearch
+            activeButton={activeButton ?? ""}
+            setActiveButton={setActiveButton}
+            FilterGalleryData={FilterGalleryData}
+            lang={lang}
+          />
         </ul>
       </div>
       <span className="text-center font-[400] text-md mt-5 dark:text-neutral-300 text-slate-700">
         {galleryData.length} {lang === "en" ? "Pins found" : "پین پیدا شد"}
       </span>
-      <MansooryLayoutList
-        items={querySearch === "" ? galleryData : filtredGalleryData}
-      />
+      <MansooryLayoutList items={filtredGalleryData} />
     </div>
   );
 }
