@@ -49,6 +49,8 @@ export default function GalleryPage() {
           ? "social relations"
           : query === "computer-engineering"
           ? "computer engineering"
+          : query === "private-life"
+          ? "private life"
           : query.toLowerCase()
       );
 
@@ -57,9 +59,11 @@ export default function GalleryPage() {
           ? "Social Relations"
           : query === "computer-engineering"
           ? "Computer Engineering"
+          : query === "private-life"
+          ? "private life"
           : query
       );
-    } else if(!query) {
+    } else if (!query) {
       setActiveButton("all");
     }
   }, [galleryData]);
@@ -129,7 +133,7 @@ export default function GalleryPage() {
                   : "dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white"
               } transition-all duration-200`}
             />{" "}
-            {lang === "en" ? "All": "همه"}
+            {lang === "en" ? "All" : "همه"}
           </div>
           <GalleryCatSearch
             activeButton={activeButton ?? ""}
