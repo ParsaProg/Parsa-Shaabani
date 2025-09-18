@@ -190,7 +190,7 @@ export function GalleryCatSearch({
             className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white ${
               activeButton === cat.catName.toLocaleLowerCase() &&
               "dark:bg-primary-dark bg-primary-light dark:text-black text-white"
-            } transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 bg-slate-100 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
+            } transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
           >
             {" "}
             <div className={`${
@@ -233,7 +233,7 @@ export function GalleryCatSearch({
             className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white ${
               activeButton === GalleryCatSearchEn[index].catName.toLocaleLowerCase() &&
               "dark:bg-primary-dark bg-primary-light dark:text-black text-white"
-            } transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 bg-slate-100 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
+            } transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
           >
             {" "}
             <div className={`${
