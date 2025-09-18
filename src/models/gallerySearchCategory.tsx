@@ -18,132 +18,62 @@ export default interface GallerySeacrhCategory {
 const GalleryCatSearchEn: GallerySeacrhCategory[] = [
   {
     catName: "scientific",
-    icon: (
-      <AudioLines
-        size={18}
-        
-      />
-    ),
+    icon: <AudioLines size={18} />,
   },
   {
     catName: "Education",
-    icon: (
-      <GraduationCap
-        size={18}
-        
-      />
-    ),
+    icon: <GraduationCap size={18} />,
   },
   {
     catName: "Technology",
-    icon: (
-      <EarthLock
-        size={18}
-        
-      />
-    ),
+    icon: <EarthLock size={18} />,
   },
   {
     catName: "Computer Engineering",
-    icon: (
-      <FolderCode
-        size={18}
-        
-      />
-    ),
+    icon: <FolderCode size={18} />,
   },
   {
     catName: "Social relations",
-    icon: (
-      <Users
-        size={18}
-        
-      />
-    ),
+    icon: <Users size={18} />,
   },
   {
     catName: "Sports",
-    icon: (
-      <LandPlot
-        size={18}
-        
-      />
-    ),
+    icon: <LandPlot size={18} />,
   },
   {
     catName: "Private Life",
-    icon: (
-      <HatGlasses
-        size={18}
-        
-      />
-    ),
+    icon: <HatGlasses size={18} />,
   },
 ];
 const GalleryCatSearchFa: GallerySeacrhCategory[] = [
   {
     catName: "علمی",
-    icon: (
-      <AudioLines
-        size={18}
-        
-      />
-    ),
+    icon: <AudioLines size={18} />,
   },
   {
     catName: "تحصیلی",
-    icon: (
-      <GraduationCap
-        size={18}
-        
-      />
-    ),
+    icon: <GraduationCap size={18} />,
   },
 
   {
     catName: "تکنولوژی",
-    icon: (
-      <EarthLock
-        size={18}
-        
-      />
-    ),
+    icon: <EarthLock size={18} />,
   },
   {
     catName: "مهندسی کامپیوتر",
-    icon: (
-      <FolderCode
-        size={18}
-        
-      />
-    ),
+    icon: <FolderCode size={18} />,
   },
   {
     catName: "روابط اجتماعی",
-    icon: (
-      <Users
-        size={18}
-        
-      />
-    ),
+    icon: <Users size={18} />,
   },
   {
     catName: "ورزشی",
-    icon: (
-      <LandPlot
-        size={18}
-        
-      />
-    ),
+    icon: <LandPlot size={18} />,
   },
   {
     catName: "زندگی شخصی",
-    icon: (
-      <HatGlasses
-        size={18}
-        
-      />
-    ),
+    icon: <HatGlasses size={18} />,
   },
 ];
 export function GalleryCatSearch({
@@ -175,6 +105,8 @@ export function GalleryCatSearch({
                     ? "computer-engineering"
                     : index === 4
                     ? "social-relations"
+                    : index === 7
+                    ? "private-life"
                     : cat.catName.toLowerCase()
                 }`
               );
@@ -193,11 +125,15 @@ export function GalleryCatSearch({
             } transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
           >
             {" "}
-            <div className={`${
+            <div
+              className={`${
                 activeButton === cat.catName.toLowerCase()
                   ? "dark:text-black text-white"
                   : "dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white"
-              } transition-all duration-200`}>{cat.icon}</div>
+              } transition-all duration-200`}
+            >
+              {cat.icon}
+            </div>
             <h1>{cat.catName}</h1>
           </div>
         );
@@ -218,6 +154,8 @@ export function GalleryCatSearch({
                     ? "computer-engineering"
                     : index === 4
                     ? "social-relations"
+                    : index === 7
+                    ? "private-life"
                     : GalleryCatSearchEn[index].catName.toLowerCase()
                 }`
               );
@@ -231,16 +169,21 @@ export function GalleryCatSearch({
             }}
             key={index}
             className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white ${
-              activeButton === GalleryCatSearchEn[index].catName.toLocaleLowerCase() &&
+              activeButton ===
+                GalleryCatSearchEn[index].catName.toLocaleLowerCase() &&
               "dark:bg-primary-dark bg-primary-light dark:text-black text-white"
             } transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
           >
             {" "}
-            <div className={`${
+            <div
+              className={`${
                 activeButton === GalleryCatSearchEn[index].catName.toLowerCase()
                   ? "dark:text-black text-white"
                   : "dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white"
-              } transition-all duration-200`}>{cat.icon}</div>
+              } transition-all duration-200`}
+            >
+              {cat.icon}
+            </div>
             <h1>{cat.catName}</h1>
           </div>
         );
