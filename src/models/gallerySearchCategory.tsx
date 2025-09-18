@@ -21,7 +21,7 @@ const GalleryCatSearchEn: GallerySeacrhCategory[] = [
     icon: (
       <AudioLines
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -30,7 +30,7 @@ const GalleryCatSearchEn: GallerySeacrhCategory[] = [
     icon: (
       <GraduationCap
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -39,7 +39,7 @@ const GalleryCatSearchEn: GallerySeacrhCategory[] = [
     icon: (
       <EarthLock
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -48,7 +48,7 @@ const GalleryCatSearchEn: GallerySeacrhCategory[] = [
     icon: (
       <FolderCode
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -57,7 +57,7 @@ const GalleryCatSearchEn: GallerySeacrhCategory[] = [
     icon: (
       <Users
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -66,7 +66,7 @@ const GalleryCatSearchEn: GallerySeacrhCategory[] = [
     icon: (
       <LandPlot
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -75,7 +75,7 @@ const GalleryCatSearchEn: GallerySeacrhCategory[] = [
     icon: (
       <HatGlasses
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -86,7 +86,7 @@ const GalleryCatSearchFa: GallerySeacrhCategory[] = [
     icon: (
       <AudioLines
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -95,7 +95,7 @@ const GalleryCatSearchFa: GallerySeacrhCategory[] = [
     icon: (
       <GraduationCap
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -105,7 +105,7 @@ const GalleryCatSearchFa: GallerySeacrhCategory[] = [
     icon: (
       <EarthLock
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -114,7 +114,7 @@ const GalleryCatSearchFa: GallerySeacrhCategory[] = [
     icon: (
       <FolderCode
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -123,7 +123,7 @@ const GalleryCatSearchFa: GallerySeacrhCategory[] = [
     icon: (
       <Users
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -132,7 +132,7 @@ const GalleryCatSearchFa: GallerySeacrhCategory[] = [
     icon: (
       <LandPlot
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -141,7 +141,7 @@ const GalleryCatSearchFa: GallerySeacrhCategory[] = [
     icon: (
       <HatGlasses
         size={18}
-        className="dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white transition-all duration-200"
+        
       />
     ),
   },
@@ -149,11 +149,13 @@ const GalleryCatSearchFa: GallerySeacrhCategory[] = [
 export function GalleryCatSearch({
   lang,
   FilterGalleryData,
-  setQuerySearch,
+  activeButton,
+  setActiveButton,
 }: {
   lang: string;
   FilterGalleryData: any;
-  setQuerySearch: (v: string) => void;
+  activeButton: string;
+  setActiveButton: (v: string) => void;
 }) {
   const router = useRouter();
   return lang === "en"
@@ -161,11 +163,12 @@ export function GalleryCatSearch({
         return (
           <div
             onClick={() => {
-              setQuerySearch(
-                window.location.search.substring(
-                  window.location.search.indexOf("=") + 1
-                )
-              );
+              // setQuerySearch(
+              //   window.location.search.substring(
+              //     window.location.search.indexOf("=") + 1
+              //   )
+              // );
+              setActiveButton(cat.catName.toLowerCase());
               router.push(
                 `/gallery?search=${
                   index === 3
@@ -184,10 +187,17 @@ export function GalleryCatSearch({
               );
             }}
             key={index}
-            className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-3 dark:bg-neutral-900 bg-slate-100 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-white text-slate700`}
+            className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white ${
+              activeButton === cat.catName.toLocaleLowerCase() &&
+              "dark:bg-primary-dark bg-primary-light dark:text-black text-white"
+            } transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 bg-slate-100 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
           >
             {" "}
-            {cat.icon}
+            <div className={`${
+                activeButton === cat.catName.toLowerCase()
+                  ? "dark:text-black text-white"
+                  : "dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white"
+              } transition-all duration-200`}>{cat.icon}</div>
             <h1>{cat.catName}</h1>
           </div>
         );
@@ -196,11 +206,12 @@ export function GalleryCatSearch({
         return (
           <div
             onClick={() => {
-              setQuerySearch(
-                window.location.search.substring(
-                  window.location.search.indexOf("=") + 1
-                )
-              );
+              // setQuerySearch(
+              //   window.location.search.substring(
+              //     window.location.search.indexOf("=") + 1
+              //   )
+              // );
+              setActiveButton(GalleryCatSearchEn[index].catName.toLowerCase());
               router.push(
                 `/gallery?search=${
                   index === 3
@@ -210,7 +221,6 @@ export function GalleryCatSearch({
                     : GalleryCatSearchEn[index].catName.toLowerCase()
                 }`
               );
-
               FilterGalleryData(
                 GalleryCatSearchEn[index].catName === "social-relations"
                   ? "Social Relations"
@@ -220,9 +230,17 @@ export function GalleryCatSearch({
               );
             }}
             key={index}
-            className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 bg-slate-100 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
+            className={`dark:hover:bg-primary-dark hover:bg-primary-light dark:hover:text-black hover:text-white ${
+              activeButton === GalleryCatSearchEn[index].catName.toLocaleLowerCase() &&
+              "dark:bg-primary-dark bg-primary-light dark:text-black text-white"
+            } transition-all duration-200 group cursor-pointer flex items-center gap-x-2 justify-center rounded-lg py-2 px-2 dark:bg-neutral-900 bg-slate-100 dark:border-neutral-700 border-slate-300 border-[1px] dark:text-WHITE text-slate700`}
           >
-            {cat.icon}
+            {" "}
+            <div className={`${
+                activeButton === GalleryCatSearchEn[index].catName.toLowerCase()
+                  ? "dark:text-black text-white"
+                  : "dark:text-primary-dark text-primary-light dark:group-hover:text-black group-hover:text-white"
+              } transition-all duration-200`}>{cat.icon}</div>
             <h1>{cat.catName}</h1>
           </div>
         );
