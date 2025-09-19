@@ -9,11 +9,13 @@ import {
   Download,
   Eye,
   Heart,
+  ImageIcon,
   LayoutTemplate,
   Upload,
 } from "lucide-react";
 import EnToFaCn from "@/lib/convertToFarsiNumbers";
 import ApiService from "@/services/GalleryClass";
+import GalleryPicturePortal from "../Gallery/Gallery-Picture-Portal";
 
 export default function MansooryMainLayout({ item, i, randomHeight }: any) {
   const [likeAccess, setLikeAccess] = useState<string | null>(null);
@@ -117,6 +119,7 @@ export default function MansooryMainLayout({ item, i, randomHeight }: any) {
     }
   };
 
+  const [isShowPortal, setIsShowPortal] = useState<boolean>(false);
   return (
     <motion.div
       whileHover={{
@@ -134,6 +137,10 @@ export default function MansooryMainLayout({ item, i, randomHeight }: any) {
         lang === "en" ? "bg-gradient-to-r" : "bg-gradient-to-l"
       } duration-300 bg-white dark:from-[#1A2433] dark:to-[#111929]`}
     >
+      <GalleryPicturePortal
+        isShowPortal={isShowPortal}
+        setIsShowPortal={setIsShowPortal}
+      />
       <div className="relative w-full h-auto overflow-hidden rounded-t-xl">
         <div className="hidden group-hover:visible absolute top-0 w-full h-full rounded-xl bg-gray-700 backdrop-blur-lg z-[9999] p-3 opacity-[0.3] blur-xl"></div>
         <div className="transition-opacity duration-200 opacity-0 group-hover:opacity-100 absolute flex flex-col p-3  justify-between items-start w-full h-full z-[999]">
@@ -221,6 +228,18 @@ export default function MansooryMainLayout({ item, i, randomHeight }: any) {
               ? likesCount.toString()
               : EnToFaCn(likesCount.toString())}
           </h1>
+        </div>
+        <div className="flex flex-col items-start">
+          <motion.button
+            onClick={() => setIsShowPortal(true)}
+            whileTap={{
+              scale: 0.9,
+            }}
+            className="rounded-lg px-3 py-2 border-[1px] border-nutral-300 dark:border-slate-600 text-center flex items-center gap-x-2 text-sm text-neutral-900 dark:text-slate-300"
+          >
+            <ImageIcon size={18} />
+            {lang === "en" ? "Show Picture" : "نمایش تصویر"}
+          </motion.button>
         </div>
       </div>
     </motion.div>
