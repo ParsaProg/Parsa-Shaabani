@@ -38,7 +38,7 @@ export default function GalleryPicturePortal({
             transition={{
               duration: 0.5,
             }}
-            className={`z-[99999] fixed top-[50%] overflow-hidden [@media(min-width:800px)]:w-[800px] w-[95%] h-auto right-[50%] translate-y-[-50%] translate-x-[50%] border-[1px] dark:border-slate-500 border-slate-300 dark:bg-slate-900 bg-slate-100 rounded-lg p-3  dark:text-white text-black flex flex-col items-center ${
+            className={`z-[9999] fixed top-[50%] overflow-hidden [@media(min-width:800px)]:w-[800px] w-[95%] h-auto right-[50%] translate-y-[-50%] translate-x-[50%] border-[1px] dark:border-slate-500 border-slate-300 dark:bg-slate-900 bg-slate-100 rounded-lg p-3  dark:text-white text-black flex flex-col items-center ${
               lang === "en" ? "font-inter" : "font-iransans"
             }`}
             dir={lang === "en" ? "ltr" : "rtl"}
@@ -105,7 +105,7 @@ export default function GalleryPicturePortal({
               setIsShowPortal(false);
               console.log(isShowPortal);
             }}
-            className="fixed inset-0 top-0 right-0 w-full h-screen backdrop-blur-xl z-[10000] "
+            className="fixed inset-0 top-0 right-0 w-full h-screen backdrop-blur-xl z-[9997] "
           ></motion.div>
         </>
       ) : null}
