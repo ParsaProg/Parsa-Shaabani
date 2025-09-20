@@ -690,6 +690,10 @@ video {
   top: 5px;
 }
 
+.top-3 {
+  top: 0.75rem;
+}
+
 .z-\[-1\] {
   z-index: -1;
 }
@@ -790,6 +794,10 @@ video {
 
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
 }
 
 .line-clamp-2 {
@@ -914,6 +922,14 @@ video {
 
 .max-h-\[500px\] {
   max-height: 500px;
+}
+
+.max-h-\[60vh\] {
+  max-height: 60vh;
+}
+
+.max-h-\[90vh\] {
+  max-height: 90vh;
 }
 
 .min-h-\[80px\] {
@@ -1182,6 +1198,10 @@ video {
   overflow: visible;
 }
 
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1221,6 +1241,10 @@ video {
 
 .border-\[3px\] {
   border-width: 3px;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .border-b-\[1px\] {
@@ -1367,6 +1391,10 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-black\/40 {
+  background-color: rgb(0 0 0 / 0.4);
+}
+
 .bg-gradient-to-l {
   background-image: linear-gradient(to left, var(--tw-gradient-stops));
 }
@@ -1377,6 +1405,11 @@ video {
 
 .fill-primary-light {
   fill: #4D6BFE;
+}
+
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .object-cover {
@@ -2171,9 +2204,28 @@ video {
     height: 150px;
   }
 
+  .sm\:max-w-\[500px\] {
+    max-width: 500px;
+  }
+
   .sm\:columns-2 {
     -moz-columns: 2;
          columns: 2;
+  }
+
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .sm\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .sm\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -2192,6 +2244,10 @@ video {
 
   .md\:w-\[90\%\] {
     width: 90%;
+  }
+
+  .md\:max-w-\[700px\] {
+    max-width: 700px;
   }
 
   .md\:columns-3 {
@@ -2221,9 +2277,18 @@ video {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 @media (min-width: 1024px) {
+  .lg\:max-w-\[900px\] {
+    max-width: 900px;
+  }
+
   .lg\:columns-4 {
     -moz-columns: 4;
          columns: 4;
@@ -2231,6 +2296,10 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:max-w-\[1100px\] {
+    max-width: 1100px;
+  }
+
   .xl\:columns-5 {
     -moz-columns: 5;
          columns: 5;
