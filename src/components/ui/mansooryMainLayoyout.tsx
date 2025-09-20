@@ -140,6 +140,8 @@ export default function MansooryMainLayout({ item, i, randomHeight }: any) {
       <GalleryPicturePortal
         isShowPortal={isShowPortal}
         setIsShowPortal={setIsShowPortal}
+        {...item}
+        likesCount={likesCount}
       />
       <div className="relative w-full h-auto overflow-hidden rounded-t-xl">
         <div className="hidden group-hover:visible absolute top-0 w-full h-full rounded-xl bg-gray-700 backdrop-blur-lg z-[9999] p-3 opacity-[0.3] blur-xl"></div>
