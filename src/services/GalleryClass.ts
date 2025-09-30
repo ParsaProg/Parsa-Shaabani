@@ -35,4 +35,19 @@ export default class ApiService {
     }
     return userPutResponse.json();
   }
+
+  async postData(body: any) {
+    const postResponse = await fetch(this.apiURl, {
+      method: "POST",
+      body: body,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${this.token}`,
+      },
+    });
+    if (!postResponse.ok) {
+      throw new Error("Can't post user");
+    }
+    return postResponse.json();
+  }
 }
