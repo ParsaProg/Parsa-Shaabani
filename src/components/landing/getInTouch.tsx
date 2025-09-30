@@ -71,21 +71,35 @@ export default function GetInTouch() {
 
   function submitForm(e: any) {
     e.preventDefault();
-    apiService.postData(JSON.stringify(state));
-    dispatch({ type: "Clean_State", value: "" });
-    toast.success("Your message successfuly send", {
-      duration: 3000,
-      style: {
-        background: "#10B981",
-        color: "#FFFFFF",
-        fontWeight: "500",
-        borderRadius: "8px",
-        border: "1px solid #059669",
-        padding: "12px 16px",
-        fontSize: "14px",
-        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-      },
-    });
+    if (state.fullName !== "" || state.email !== "" || state.Message !== "") {
+      apiService.postData(JSON.stringify(state));
+      dispatch({ type: "Clean_State", value: "" });
+      toast.success("Your message successfuly send", {
+        duration: 2000,
+        style: {
+          background: "#10B981",
+          color: "#FFFFFF",
+          fontWeight: "500",
+          borderRadius: "8px",
+          border: "1px solid #059669",
+          padding: "12px 16px",
+          fontSize: "14px",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+        },
+      });
+    } else {
+      toast.error("All fields are required", {
+        duration: 2000,
+        style: {
+          color: "#FFFFFF",
+          fontWeight: "500",
+          borderRadius: "8px",
+          padding: "12px 16px",
+          fontSize: "14px",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+        },
+      });
+    }
   }
 
   const { lang } = useLang();
