@@ -6,10 +6,86 @@ import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import ConnectWithMeField from "../ui/connectionForm/connectWithMeFormField";
 import { Mail, Phone, Send, SendIcon } from "lucide-react";
+import ApiService from "@/services/GalleryClass";
+import { useReducer } from "react";
+import toast from "react-hot-toast";
+
+const apiService = new ApiService(
+  "https://parsa-shaabani-backend.vercel.app/messages",
+  "honoParsaPortfolioBackend54"
+);
+
+interface StateReducerInterFace {
+  fullName: string;
+  email: string;
+  Message: string;
+}
+
+type FormAction =
+  | {
+      type: "Clean_State";
+      value: any;
+    }
+  | {
+      type: "FullName_Change";
+      value: string;
+    }
+  | {
+      type: "Email_Change";
+      value: string;
+    }
+  | {
+      type: "Message_Change";
+      value: string;
+    };
 
 export default function GetInTouch() {
+  const reducer = (state: StateReducerInterFace, action: FormAction) => {
+    switch (action.type) {
+      case "FullName_Change":
+        return { ...state, fullName: action.value };
+      case "Email_Change":
+        return {
+          ...state,
+          email: action.value,
+        };
+      case "Message_Change":
+        return {
+          ...state,
+          Message: action.value,
+        };
+      case "Clean_State":
+        return initialState;
+
+      default:
+        return state;
+    }
+  };
+  const initialState: StateReducerInterFace = {
+    fullName: "",
+    email: "",
+    Message: "",
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   function submitForm(e: any) {
     e.preventDefault();
+    apiService.postData(JSON.stringify(state));
+    dispatch({ type: "Clean_State", value: "" });
+    toast.success("Your message successfuly send", {
+      duration: 3000,
+      style: {
+        background: "#10B981",
+        color: "#FFFFFF",
+        fontWeight: "500",
+        borderRadius: "8px",
+        border: "1px solid #059669",
+        padding: "12px 16px",
+        fontSize: "14px",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+      },
+    });
   }
 
   const { lang } = useLang();
@@ -54,6 +130,9 @@ export default function GetInTouch() {
               ? en.getInTouch.form.fields.fullName
               : fa.getInTouch.form.fields.fullName
           }
+          tag="fullName"
+          dispatch={dispatch}
+          state={state}
         />
         <ConnectWithMeField
           title={
@@ -61,6 +140,9 @@ export default function GetInTouch() {
               ? en.getInTouch.form.fields.email
               : fa.getInTouch.form.fields.email
           }
+          tag="email"
+          dispatch={dispatch}
+          state={state}
         />
         <ConnectWithMeField
           title={
@@ -68,7 +150,10 @@ export default function GetInTouch() {
               ? en.getInTouch.form.fields.message
               : fa.getInTouch.form.fields.message
           }
+          tag="message"
           message={true}
+          dispatch={dispatch}
+          state={state}
         />
         <section className="flex mt-3 w-full justify-between items-center">
           <div className="flex flex-col items-start">
