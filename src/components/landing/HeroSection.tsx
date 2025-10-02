@@ -79,31 +79,44 @@ export default function HeroSection() {
           </motion.button>
         </motion.div>
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 30 }}
-        transition={{ delay: 0.5 }}
-        className="border-[3px] [@media(max-width:980px)]:w-[250px] [@media(max-width:980px)]:h-[250px] w-[300px] h-[300px] dark:border-neutral-500 border-neutral-200 rounded-full p-1"
-      >
-        <Image
-          onLoad={() => {
-            setIsLoad(true);
+      <div className="relative">
+        <motion.div
+          style={{
+            borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
           }}
-          draggable={false}
-          width={800}
-          height={800}
-          alt="پارسا شعبانی | Parsa Shabani - برنامه‌نویس و توسعه دهنده"
-          src={"https://avatars.githubusercontent.com/u/122119546?v=4"}
-          className={`${
-            isLoad
-              ? "scale-[1] blur-0 grayscale-0"
-              : "grayscale scale-[0.9] blur-lg"
-          } transition-all duration-1000 rounded-full z-[-1]`}
-          unoptimized
-          quality={100}
-        />
-      </motion.div>
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 30 }}
+          transition={{ delay: 0.5 }}
+          className="[@media(max-width:980px)]:w-[300px] [@media(max-width:980px)]:h-[300px] w-[320px] h-[320px] dark:border-neutral-500 border-neutral-200 p-1"
+        >
+          <Image
+            style={{
+              boxShadow: `
+      0 20px 20px -1px rgba(20, 90, 100, 0.6),
+      1px 5px 5px 1px rgba(99, 102, 241, 0.1),
+      5px -5px 30px 5px rgba(100, 50, 100, 1)
+    `,
+              borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
+            }}
+            onLoad={() => {
+              setIsLoad(true);
+            }}
+            draggable={false}
+            width={800}
+            height={800}
+            alt="پارسا شعبانی | Parsa Shabani - برنامه‌نویس و توسعه دهنده"
+            src={"https://avatars.githubusercontent.com/u/122119546?v=4"}
+            className={`${
+              isLoad
+                ? "scale-[1] blur-0 grayscale-0"
+                : "grayscale scale-[0.9] blur-lg"
+            } transition-all duration-1000 z-[-1] animate-morph-radius`}
+            unoptimized
+            quality={100}
+          />
+        </motion.div>
+      </div>
     </div>
   );
 }
