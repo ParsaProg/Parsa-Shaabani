@@ -88,7 +88,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 30 }}
           transition={{ delay: 0.5 }}
-          className="[@media(max-width:980px)]:w-[300px] [@media(max-width:980px)]:h-[300px] w-[320px] h-[320px] dark:border-neutral-500 border-neutral-200 p-1"
+          className="[@media(max-width:980px)]:w-[220px] [@media(max-width:980px)]:h-[220px] w-[320px] h-[320px] dark:border-neutral-500 border-neutral-200 p-1"
         >
           <Image
             style={{
