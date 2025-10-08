@@ -71,12 +71,12 @@ export default function Header() {
               >
                 {lang === "en" ? "Gallery" : "گالری"}
               </Link>
-              <Link
-                href={"/blog"}
+              <a
+                href={"https://blog.parsashaabani.ir"}
                 className="text-sm p-2 transition-all duration-200 dark:hover:bg-neutral-800 hover:bg-neutral-300 rounded-lg dark:text-neutral-300 text-neutral-700 cursor-pointer"
               >
                 {lang === "en" ? "Blog" : "وبلاگ"}
-              </Link>
+              </a>
             </div>
             <div className="flex items-center gap-x-2">
               <ThemeToggle theme={theme!} setTheme={setTheme} />
