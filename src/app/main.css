@@ -2130,16 +2130,8 @@ video {
     display: none;
   }
 
-  .\[\@media\(max-width\:980px\)\]\:h-\[250px\] {
-    height: 250px;
-  }
-
   .\[\@media\(max-width\:980px\)\]\:h-\[220px\] {
     height: 220px;
-  }
-
-  .\[\@media\(max-width\:980px\)\]\:w-\[250px\] {
-    width: 250px;
   }
 
   .\[\@media\(max-width\:980px\)\]\:w-\[220px\] {

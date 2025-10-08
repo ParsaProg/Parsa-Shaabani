@@ -93,9 +93,9 @@ export default function HeroSection() {
           <Image
             style={{
               boxShadow: `
-      0 20px 20px -1px rgba(20, 90, 100, 0.6),
+      0 10px 20px -1px rgba(20, 90, 100, 0.6),
       1px 5px 5px 1px rgba(99, 102, 241, 0.1),
-      5px -5px 30px 5px rgba(100, 50, 100, 1)
+      1px -5px 30px -1px rgba(100, 50, 100, 1)
     `,
               borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
             }}
