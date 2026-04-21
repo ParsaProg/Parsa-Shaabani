@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+  import type { Metadata } from "next";
 
 import "./main.css";
 import { ThemeProvider } from "next-themes";

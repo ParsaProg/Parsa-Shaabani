@@ -72,7 +72,7 @@ export default function ConnectionDialog() {
             </motion.a>
             <motion.a
               target="_blank"
-              href="https://github.com/ParsaProg"
+              href="https://www.linkedin.com/in/parsa-shaabani-293969403/"
               whileTap={{
                 scale: 0.95,
               }}
