@@ -1,4 +1,6 @@
-  import type { Metadata } from "next";
+// layout.tsx
+
+import type { Metadata } from "next";
 
 import "./main.css";
 import { ThemeProvider } from "next-themes";
