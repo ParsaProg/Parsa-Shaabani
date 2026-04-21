@@ -6,6 +6,7 @@ import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import ParsaShaabani from "@/../public/images/parsa-shaabani.webp";
 
 export default function HeroSection() {
   const [isLoad, setIsLoad] = useState<boolean>(false);
@@ -106,7 +107,7 @@ export default function HeroSection() {
             width={800}
             height={800}
             alt="پارسا شعبانی | Parsa Shabani - برنامه‌نویس و توسعه دهنده"
-            src={"https://avatars.githubusercontent.com/u/122119546?v=4"}
+            src={ParsaShaabani.src}
             className={`${
               isLoad
                 ? "scale-[1] blur-0 grayscale-0"
