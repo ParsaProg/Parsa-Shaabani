@@ -10,7 +10,7 @@ export default function Header() {
   const { toggleLang, lang } = useLang();
   const { theme, setTheme } = useTheme();
   return (
-    <div className="fixed z-[99999] top-0 dark:bg-background-dark/85  backdrop-blur-xl bg-[#ffffffde] w-full p-2 flex justify-center border-b-[1px] dark:border-b-[#3e3d3d] border-b-[#E2E8F0]">
+    <div className="fixed z-[99999] top-0 dark:bg-background-dark/80  backdrop-blur-xl bg-[#ffffffde] w-full p-2 flex justify-center border-b-[1px] dark:border-b-[#3e3d3d] border-b-[#E2E8F0]">
       <div className=" [@media(max-width:1200px)]:w-[95%] w-[80%] flex items-center justify-between py-3">
         <a href="/" className="w-[100px]">
           <svg
