@@ -7,6 +7,15 @@ import TailwindIcon from "@/../public/icons/Tailwindcss.svg";
 import GitIcon from "@/../public/icons/Git.svg";
 import MuiIcon from "@/../public/icons/Mui.svg";
 import PythonIcon from "@/../public/icons/python.png";
+import Express from "@/../public/icons/Express.png";
+import Hono from "@/../public/icons/Hono.png";
+import NodeJs from "@/../public/icons/nodejs-logo.gif";
+import Postgresql from "@/../public/icons/Postgresql_elephant.svg.png";
+import Prisma from "@/../public/icons/prisma-orm.jpg";
+import MongoDb from "@/../public/icons/mongodb.webp";
+import Vercel from "@/../public/icons/vercel-icon.svg";
+import Zod from "@/../public/icons/zod-icon.png";
+import WebScoket from "@/../public/icons/websocket.png";
 import Image from "next/image";
 
 interface TopSkillModel {
@@ -17,7 +26,9 @@ interface TopSkillModel {
 
 export const TopSkillsModel: TopSkillModel[] = [
   {
-    logo: <Image src={TypeScriptIcon} alt="TypeScript" width={32} height={32} />,
+    logo: (
+      <Image src={TypeScriptIcon} alt="TypeScript" width={32} height={32} />
+    ),
     tag: "TypeScript",
     level: "advanced",
   },
@@ -54,6 +65,59 @@ export const TopSkillsModel: TopSkillModel[] = [
   {
     logo: <Image src={MuiIcon} alt="MUI" width={32} height={32} />,
     tag: "MUI",
+    level: "medium",
+  },
+  {
+    logo: <Image src={Express} alt="Express" width={32} height={32} />,
+    tag: "Express",
+    level: "advanced",
+  },
+  {
+    logo: <Image src={Hono} alt="Hono" width={32} height={32} />,
+    tag: "Hono",
+    level: "advanced",
+  },
+  {
+    logo: <Image src={NodeJs} alt="NodeJs" width={32} height={32} />,
+    tag: "NodeJs",
+    level: "advanced",
+  },
+  {
+    logo: <Image src={Postgresql} alt="Postgresql" width={32} height={32} />,
+    tag: "Postgresql",
+    level: "advanced",
+  },
+  {
+    logo: (
+      <Image
+        className="rounded-full"
+        src={Prisma}
+        alt="Prisma"
+        width={32}
+        height={32}
+      />
+    ),
+    tag: "Prisma",
+    level: "advanced",
+  },
+  {
+    logo: <Image src={MongoDb} alt="MongoDb" width={32} height={32} />,
+    tag: "MongoDb",
+    level: "advanced",
+  },
+  {
+    logo: <Image src={Vercel} alt="Vercel" width={32} height={32} />,
+    tag: "Vercel",
+    level: "advanced",
+  },
+  {
+    logo: <Image src={Zod} alt="Zod-Validation" width={32} height={32} />,
+    tag: "ZOD-Validation",
+    level: "advanced",
+  },
+  {
+    logo: <Image src={WebScoket} alt="Web-Scoket apis" width={32} height={32} />,
+    tag: "Web-Scoket api",
     level: "medium",
   },
 ];
