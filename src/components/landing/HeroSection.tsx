@@ -47,7 +47,7 @@ export default function HeroSection() {
   exit={{ opacity: 0, y: 30 }}
   transition={{ delay: 0.9 }}
 >
-  {/* Changed motion.button to motion.a */}
+  
   <motion.a
     href={"/pdf/parsa-shaabani-resume-cv.pdf"}
     target="_blank"
