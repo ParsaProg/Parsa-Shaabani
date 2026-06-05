@@ -42,43 +42,47 @@ export default function HeroSection() {
           {lang === "en" ? en.hero.description : fa.hero.description}
         </motion.p>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 30 }}
-          transition={{ delay: 0.9 }}
-        >
-          <motion.button
-            whileTap={{ scale: 0.95, transition: { delay: 0 } }}
-            className="font-[400] mt-5 outline-none ring dark:ring-neutral-700 ring-neutral-300 ring-offset-4
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  exit={{ opacity: 0, y: 30 }}
+  transition={{ delay: 0.9 }}
+>
+  {/* Changed motion.button to motion.a */}
+  <motion.a
+    href={"/pdf/parsa-shaabani-resume-cv.pdf"}
+    target="_blank"
+    rel="noopener noreferrer"
+    whileTap={{ scale: 0.95, transition: { delay: 0 } }}
+    className="font-[400] mt-5 outline-none ring dark:ring-neutral-700 ring-neutral-300 ring-offset-4
           dark:ring-offset-background-dark ring-offset-background-light
              flex items-center gap-x-3 justify-center py-3 px-5 rounded-full 
-             dark:text-black text-white dark:bg-primary-dark bg-primary-light group"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-download-icon lucide-download"
-            >
-              <path
-                d="M12 15V3"
-                className="transition-transform duration-300 group-hover:translate-y-[2px]"
-              />
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <path
-                d="m7 10 5 5 5-5"
-                className="transition-transform duration-300 group-hover:translate-y-[2px]"
-              />
-            </svg>
-            {lang === "en" ? en.hero.buttonContent : fa.hero.buttonContent}
-          </motion.button>
-        </motion.div>
+             dark:text-black text-white dark:bg-primary-dark bg-primary-light group cursor-pointer"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-download-icon lucide-download"
+    >
+      <path
+        d="M12 15V3"
+        className="transition-transform duration-300 group-hover:translate-y-[2px]"
+      />
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+      <path
+        d="m7 10 5 5 5-5"
+        className="transition-transform duration-300 group-hover:translate-y-[2px]"
+      />
+    </svg>
+    {lang === "en" ? en.hero.buttonContent : fa.hero.buttonContent}
+  </motion.a>
+</motion.div>
       </div>
       <div className="relative">
         <motion.div
