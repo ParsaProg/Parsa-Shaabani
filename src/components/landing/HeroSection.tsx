@@ -126,7 +126,7 @@ export default function HeroSection() {
   const [isLoad, setIsLoad] = useState<boolean>(false);
   const { lang } = useLang();
   return (
-    <div className="-mt-38 flex [@media(max-width:980px)]:flex-col-reverse items-center gap-y-3 justify-between [@media(max-width:1200px)]:w-[100%] w-[100%] mx-auto">
+    <div className="-mt-38 flex [@media(max-width:980px)]:flex-col-reverse items-center gap-y-3 justify-between [@media(max-width:1200px)]:w-[95%] w-[90%] mx-auto">
       <div className="flex flex-col items-start [@media(max-width:980px)]:p-5 [@media(max-width:980px)]:text-center [@media(max-width:980px)]:items-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -198,7 +198,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      <div className="relative isolate flex h-[430px] w-[430px] items-center justify-center overflow-hidden [@media(max-width:980px)]:h-[500px] [@media(max-width:980px)]:w-full">
+      <div className="relative isolate flex h-[500px] w-[500px] items-center justify-center overflow-hidden [@media(max-width:980px)]:h-[500px] [@media(max-width:980px)]:w-full">
         <motion.div
           aria-hidden="true"
           animate={{ scale: [1, 1.06, 1], opacity: [0.55, 0.85, 0.55] }}
