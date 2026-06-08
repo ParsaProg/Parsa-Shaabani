@@ -3,21 +3,17 @@ import { useLang } from "@/contexts/languageContext";
 import en from "@/langs/en.json";
 import fa from "@/langs/fa.json";
 import { GalleryCatSearch } from "@/models/gallerySearchCategory";
-import { CatIcon, Search } from "lucide-react";
+import { CatIcon } from "lucide-react";
 import MansooryLayoutList from "@/components/ui/MansooryLayoutList";
 import { useEffect, useState } from "react";
 import { GalleryItem } from "@/types/GalleryItems";
 import ApiService from "@/services/GalleryClass";
 import { usePathname, useRouter } from "next/navigation";
-
-const apiService = new ApiService(
-  "https://parsa-shaabani-backend.vercel.app/gallery",
-  "honoParsaPortfolioBackend54"
-);
+import { TokenGeneratorService } from "@/services/TokenGenerator";
 
 export default function GalleryPage() {
   const [activeButton, setActiveButton] = useState<string | undefined>(
-    undefined
+    undefined,
   );
   const router = useRouter();
   const pathname = usePathname();
@@ -32,15 +28,52 @@ export default function GalleryPage() {
   };
 
   useEffect(() => {
-    apiService.getData().then((galleryApiData) => {
-      setGalleryData(galleryApiData);
-      setFiltredGalleryData(galleryApiData);
-    });
+    let cancelled = false;
+
+    const getAccessToken = async () => {
+      const savedToken = localStorage.getItem("accessToken");
+
+      if (savedToken) {
+        return savedToken;
+      }
+
+      const res = await TokenGeneratorService();
+      const token = res.token;
+
+      localStorage.setItem("accessToken", token);
+      return token;
+    };
+
+    const loadGallery = async () => {
+      try {
+        const token = await getAccessToken();
+
+        const apiService = new ApiService(
+          "https://parsa-shaabani-backend.vercel.app/gallery",
+          token,
+        );
+
+        const galleryApiData = await apiService.getData();
+
+        if (cancelled) return;
+
+        setGalleryData(galleryApiData);
+        setFiltredGalleryData(galleryApiData);
+      } catch (error) {
+        console.error("Failed to load gallery:", error);
+      }
+    };
+
+    loadGallery();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
     const query = window.location.search.substring(
-      window.location.search.indexOf("=") + 1
+      window.location.search.indexOf("=") + 1,
     );
 
     if (query && galleryData.length > 0) {
@@ -48,29 +81,28 @@ export default function GalleryPage() {
         query === "social-relations"
           ? "social relations"
           : query === "computer-engineering"
-          ? "computer engineering"
-          : query === "private-life"
-          ? "private life"
-          : query.toLowerCase()
+            ? "computer engineering"
+            : query === "private-life"
+              ? "private life"
+              : query.toLowerCase(),
       );
 
       FilterGalleryData(
         query === "social-relations"
           ? "Social Relations"
           : query === "computer-engineering"
-          ? "Computer Engineering"
-          : query === "private-life"
-          ? "private life"
-          : query
+            ? "Computer Engineering"
+            : query === "private-life"
+              ? "private life"
+              : query,
       );
     } else if (!query) {
       setActiveButton("all");
     }
   }, [galleryData]);
-
   function FilterGalleryData(cat: string) {
     const filteredGallery = galleryData.filter(
-      (v) => v.enCategory.toLowerCase() === cat.toLowerCase()
+      (v) => v.enCategory.toLowerCase() === cat.toLowerCase(),
     );
     setFiltredGalleryData(filteredGallery);
   }
@@ -144,7 +176,8 @@ export default function GalleryPage() {
         </ul>
       </div>
       <span className="text-center font-[400] text-md mt-5 dark:text-neutral-300 text-slate-700">
-        {filtredGalleryData!.length} {lang === "en" ? "Pins found" : "پین پیدا شد"}
+        {filtredGalleryData!.length}{" "}
+        {lang === "en" ? "Pins found" : "پین پیدا شد"}
       </span>
       <MansooryLayoutList items={filtredGalleryData} />
     </div>
