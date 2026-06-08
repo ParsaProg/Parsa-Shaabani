@@ -18,6 +18,8 @@ interface StateReducerInterFace {
   Message: string;
 }
 
+type FormErrors = Partial<Record<keyof StateReducerInterFace, string>>;
+
 type FormAction =
   | {
       type: "Clean_State";
@@ -42,6 +44,15 @@ const initialState: StateReducerInterFace = {
   Message: "",
 };
 
+const toastStyle = {
+  color: "#FFFFFF",
+  fontWeight: "500",
+  borderRadius: "8px",
+  padding: "12px 16px",
+  fontSize: "14px",
+  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+};
+
 const reducer = (state: StateReducerInterFace, action: FormAction) => {
   switch (action.type) {
     case "FullName_Change":
@@ -61,33 +72,74 @@ const reducer = (state: StateReducerInterFace, action: FormAction) => {
   }
 };
 
-const isFormValid = (state: StateReducerInterFace) => {
-  return (
-    state.fullName.trim() !== "" &&
-    state.email.trim() !== "" &&
-    state.Message.trim() !== ""
-  );
+const validateForm = (state: StateReducerInterFace) => {
+  const errors: FormErrors = {};
+
+  const fullName = state.fullName.trim();
+  const email = state.email.trim();
+  const message = state.Message.trim();
+
+  if (!fullName) {
+    errors.fullName = "Full name is required";
+  } else if (fullName.length < 3) {
+    errors.fullName = "Full name must be at least 3 characters";
+  } else if (fullName.length > 60) {
+    errors.fullName = "Full name must be less than 60 characters";
+  }
+
+  if (!email) {
+    errors.email = "Email is required";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.email = "Please enter a valid email address";
+  }
+
+  if (!message) {
+    errors.Message = "Message is required";
+  } else if (message.length < 10) {
+    errors.Message = "Message must be at least 10 characters";
+  } else if (message.length > 1000) {
+    errors.Message = "Message must be less than 1000 characters";
+  }
+
+  return errors;
 };
 
 export default function GetInTouch() {
   const { lang } = useLang();
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleDispatch = (action: FormAction) => {
+    dispatch(action);
+
+    if (action.type === "FullName_Change") {
+      setErrors((prev) => ({ ...prev, fullName: undefined }));
+    }
+
+    if (action.type === "Email_Change") {
+      setErrors((prev) => ({ ...prev, email: undefined }));
+    }
+
+    if (action.type === "Message_Change") {
+      setErrors((prev) => ({ ...prev, Message: undefined }));
+    }
+
+    if (action.type === "Clean_State") {
+      setErrors({});
+    }
+  };
 
   const submitForm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!isFormValid(state)) {
-      toast.error("All fields are required", {
+    const validationErrors = validateForm(state);
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length > 0) {
+      toast.error("Please fix the form errors", {
         duration: 2000,
-        style: {
-          color: "#FFFFFF",
-          fontWeight: "500",
-          borderRadius: "8px",
-          padding: "12px 16px",
-          fontSize: "14px",
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-        },
+        style: toastStyle,
       });
       return;
     }
@@ -102,22 +154,17 @@ export default function GetInTouch() {
           fullName: state.fullName.trim(),
           email: state.email.trim(),
           Message: state.Message.trim(),
-        })
+        }),
       );
 
-      dispatch({ type: "Clean_State" });
+      handleDispatch({ type: "Clean_State" });
 
       toast.success("Your message successfully sent", {
         duration: 2000,
         style: {
+          ...toastStyle,
           background: "#10B981",
-          color: "#FFFFFF",
-          fontWeight: "500",
-          borderRadius: "8px",
           border: "1px solid #059669",
-          padding: "12px 16px",
-          fontSize: "14px",
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
         },
       });
     } catch (error) {
@@ -125,14 +172,7 @@ export default function GetInTouch() {
 
       toast.error("Failed to send message", {
         duration: 2000,
-        style: {
-          color: "#FFFFFF",
-          fontWeight: "500",
-          borderRadius: "8px",
-          padding: "12px 16px",
-          fontSize: "14px",
-          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-        },
+        style: toastStyle,
       });
     } finally {
       setIsSubmitting(false);
@@ -165,6 +205,7 @@ export default function GetInTouch() {
         }}
         transition={{ delay: 0.1 }}
         onSubmit={submitForm}
+        noValidate
         className="mt-5 flex flex-col gap-y-3 p-6 rounded-xl border-[1px] dark:border-neutral-800 border-slate-200"
       >
         <h1 className="text-[#021322] dark:text-white font-bold text-xl w-full">
@@ -177,39 +218,55 @@ export default function GetInTouch() {
             : fa.getInTouch.form.subTitle}
         </p>
 
-        <ConnectWithMeField
-          title={
-            lang === "en"
-              ? en.getInTouch.form.fields.fullName
-              : fa.getInTouch.form.fields.fullName
-          }
-          tag="fullName"
-          dispatch={dispatch}
-          state={state}
-        />
+        <div>
+          <ConnectWithMeField
+            title={
+              lang === "en"
+                ? en.getInTouch.form.fields.fullName
+                : fa.getInTouch.form.fields.fullName
+            }
+            tag="fullName"
+            dispatch={handleDispatch}
+            state={state}
+          />
+          {errors.fullName && (
+            <p className="mt-1 text-sm text-red-500">{errors.fullName}</p>
+          )}
+        </div>
 
-        <ConnectWithMeField
-          title={
-            lang === "en"
-              ? en.getInTouch.form.fields.email
-              : fa.getInTouch.form.fields.email
-          }
-          tag="email"
-          dispatch={dispatch}
-          state={state}
-        />
+        <div>
+          <ConnectWithMeField
+            title={
+              lang === "en"
+                ? en.getInTouch.form.fields.email
+                : fa.getInTouch.form.fields.email
+            }
+            type="email"
+            tag="email"
+            dispatch={handleDispatch}
+            state={state}
+          />
+          {errors.email && (
+            <p className="mt-1 text-sm text-red-500">{errors.email}</p>
+          )}
+        </div>
 
-        <ConnectWithMeField
-          title={
-            lang === "en"
-              ? en.getInTouch.form.fields.message
-              : fa.getInTouch.form.fields.message
-          }
-          tag="message"
-          message={true}
-          dispatch={dispatch}
-          state={state}
-        />
+        <div>
+          <ConnectWithMeField
+            title={
+              lang === "en"
+                ? en.getInTouch.form.fields.message
+                : fa.getInTouch.form.fields.message
+            }
+            tag="message"
+            message={true}
+            dispatch={handleDispatch}
+            state={state}
+          />
+          {errors.Message && (
+            <p className="mt-1 text-sm text-red-500">{errors.Message}</p>
+          )}
+        </div>
 
         <section className="flex mt-3 w-full justify-between items-center">
           <div className="flex flex-col items-start">
