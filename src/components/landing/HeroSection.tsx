@@ -102,10 +102,10 @@ const floatingCodeSnippets = [
     drift: 16,
   },
   {
-    code: "Yasin-Shahrzad",
+    code: "Yasin-Shahrzad IDEA",
     left: "55%",
-    delay: 2.7,
-    duration: 17,
+    delay: 5.3,
+    duration: 25,
     drift: 16,
   },
 ];
