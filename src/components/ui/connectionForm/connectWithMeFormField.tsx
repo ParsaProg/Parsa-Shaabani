@@ -18,12 +18,14 @@ export default function ConnectWithMeField({
   tag,
   dispatch,
   state,
+  type,
 }: {
   title: string;
   message?: boolean;
   tag: string;
   state: any;
   dispatch: React.Dispatch<FormAction>;
+  type?: string;
 }) {
   return (
     <div className="flex flex-col gap-y-3 mt-5">
@@ -38,7 +40,7 @@ export default function ConnectWithMeField({
               dispatch({ type: "Email_Change", value: e.target.value });
             }
           }}
-          type="text"
+          type={!type ? "text" : type}
           className={`${
             title === "Email" || title === "ایمیل"
               ? "font-inter"
