@@ -8,32 +8,29 @@ import { LangProvider } from "@/contexts/languageContext";
 import { ClientLayout } from "./clientLayout";
 
 export const metadata: Metadata = {
-  icons: {
-    icon: [
+  title: "Parsa Shaabani | Portfolio",
+  description:
+    "Welcome to my professional portfolio showcasing my work and projects.",
+  openGraph: {
+    title: "Parsa Shaabani | Portfolio",
+    description: "Check out my latest projects and professional experience.",
+    url: "https://www.parsashaabani.ir", // Replace with your actual deployed URL
+    siteName: "Parsa Shaabani",
+    images: [
       {
-        url: "/favicon.ico",
-        sizes: "any",
+        url: "/images/parsa-shaabani.png", // Path to your image in public folder
+        width: 1200,
+        height: 630,
+        alt: "Parsa Shaabani",
       },
     ],
-    shortcut: "/favicon.ico",
-    apple: "/favicon.png",
-  },
-  title: "Parsa Shaabani | پارسا شعبانی",
-  description:
-    "پارسا شعبانی، برنامه نویس و توسعه دهندۀ فرانت‌اند، رزومه‌ها و پروژه‌ها، علاقه‌مند به تکنولوژی و ورزش مکرر",
-  openGraph: {
-    title: "Parsa Shaabani | پارسا شعبانی",
-    description:
-      "پارسا شعبانی، برنامه نویس و توسعه دهندۀ فرانت‌اند، رزومه‌ها و پروژه‌ها، علاقه‌مند به تکنولوژی و ورزش مکرر",
+    type: "website",
   },
   twitter: {
-    title: "Parsa Shaabani | پارسا شعبانی",
-    description:
-      "پارسا شعبانی، برنامه نویس و توسعه دهندۀ فرانت‌اند، رزومه‌ها و پروژه‌ها، علاقه‌مند به تکنولوژی و ورزش مکرر",
-  },
-  robots: {
-    index: true,
-    follow: true,
+    card: "summary_large_image",
+    title: "Parsa Shaabani | Portfolio",
+    description: "Check out my latest projects and professional experience.",
+    images: ["/images/parsa-shaabani.png"],
   },
 };
 
