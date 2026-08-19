@@ -3,13 +3,39 @@ export default interface ProjectsType {
   description: string;
   tag: string;
   deployLink?: string;
-  githubLink: string;
+  githubLink?: string;
   cats: Array<string>;
   posterImage: Record<"light" | "dark", string>;
   supportTheme?: string;
 }
 
 export const ProjectsModelDataEn: ProjectsType[] = [
+  {
+    title: "Sazhin",
+    description:
+      "Sajhin Exchange is a modern, professionally executed commercial project that has achieved complete success in collaboration with Tehran",
+
+    cats: [
+      "NextJs",
+      "Typescript",
+      "Eslint",
+      "NodeJs",
+      "Express",
+      "Postgresql",
+      "Prisma",
+      "Node-cron",
+      "TailwindCss",
+      "Vercel",
+    ],
+    tag: "Full-Stack Developer",
+    posterImage: {
+      light:
+        "https://github.com/ParsaProg/Parsa-Shaabani-Assets/blob/main/Screenshot%202026-08-20%20023305.png?raw=true",
+      dark: "https://github.com/ParsaProg/Parsa-Shaabani-Assets/blob/main/Screenshot%202026-08-20%20023305.png?raw=true",
+    },
+    deployLink: "https://www.sazhinexchange.com",
+    supportTheme: "multiTheme",
+  },
   {
     title: "Tecama",
     description:
@@ -79,6 +105,32 @@ export const ProjectsModelDataEn: ProjectsType[] = [
 ];
 
 export const ProjectsModelDataFa: ProjectsType[] = [
+  {
+    title: "صرافی ساژین",
+    description:
+      "صرافی ساژین، یک پروژه ی تجاری، مدرن و اصولی که با تهران بسته شده، کاملا موفق بوده",
+
+    cats: [
+      "NextJs",
+      "Typescript",
+      "Eslint",
+      "NodeJs",
+      "Express",
+      "Postgresql",
+      "Prisma",
+      "Node-cron",
+      "TailwindCss",
+      "Vercel",
+    ],
+    tag: "Full-Stack Developer",
+    posterImage: {
+      light:
+        "https://github.com/ParsaProg/Parsa-Shaabani-Assets/blob/main/Screenshot%202026-08-20%20023249.png?raw=true",
+      dark: "https://github.com/ParsaProg/Parsa-Shaabani-Assets/blob/main/Screenshot%202026-08-20%20023305.png?raw=true",
+    },
+    supportTheme: "multiTheme",
+    deployLink: "https://www.sazhinexchange.com"
+  },
   {
     title: "تکاما (تکنولوژی با ما)",
     description:
