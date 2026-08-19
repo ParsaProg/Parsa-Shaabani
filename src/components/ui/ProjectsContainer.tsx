@@ -21,9 +21,12 @@ export default function ProjectContainer({
   return (
     <div
       suppressHydrationWarning
-      className="h-[600px] shadow-md shadow-[#00000012] dark:shadow-[#ffffff08] w-[100%] rounded-xl p-5 border-[1px] dark:border-neutral-800 border-slate-200 overflow-hidden flex flex-col justify-between gap-y-2"
+      className="h-[650px] shadow-md shadow-[#00000012] dark:shadow-[#ffffff08] w-[100%] rounded-xl p-5 border-[1px] dark:border-neutral-800 border-slate-200 overflow-hidden flex flex-col justify-between gap-y-2"
     >
-      <ProjectImage title={title} posterImage={posterImage} />
+      <div className="h-[350px] rounded-xl overflow-hidden">
+        <ProjectImage title={title} posterImage={posterImage} />
+      </div>
+
       <h1 className="dark:text-white text-black font-bold text-xl">{title}</h1>
       <p className="font-[400] dark:text-neutral-300 text-neutral-700 text-sm">
         {description}
@@ -57,13 +60,15 @@ export default function ProjectContainer({
             </a>
           )}
 
-          <a
-            target="_blank"
-            href={githubLink}
-            className="z-[99] cursor-pointer transition-all duration-200 bg-transparent p-2 rounded-xl dark:hover:bg-neutral-800 hover:bg-slate-200 border-[1px] dark:border-neutral-800 border-slate-200 dark:text-neutral-200 text-slate-700"
-          >
-            <Github size={18} />
-          </a>
+          {githubLink && (
+            <a
+              target="_blank"
+              href={githubLink}
+              className="z-[99] cursor-pointer transition-all duration-200 bg-transparent p-2 rounded-xl dark:hover:bg-neutral-800 hover:bg-slate-200 border-[1px] dark:border-neutral-800 border-slate-200 dark:text-neutral-200 text-slate-700"
+            >
+              <Github size={18} />
+            </a>
+          )}
           <section className="relative">
             <AnimatePresence>
               {isShowThemeToolTip && (
@@ -90,12 +95,14 @@ export default function ProjectContainer({
                       ? "Multi Theme Support"
                       : "پشتیبانی از تم شب و روز"
                     : supportTheme === "light"
-                    ? lang === "en"
-                      ? "Light Theme Support"
-                      : "پشتیبانی فقط از تم روشن"
-                    : supportTheme === "dark"
-                    ? lang === "en"? "Dark Theme Support": "پشتیبانی فقط از تم تاریک"
-                    : "No Theme"}
+                      ? lang === "en"
+                        ? "Light Theme Support"
+                        : "پشتیبانی فقط از تم روشن"
+                      : supportTheme === "dark"
+                        ? lang === "en"
+                          ? "Dark Theme Support"
+                          : "پشتیبانی فقط از تم تاریک"
+                        : "No Theme"}
                 </motion.div>
               )}
             </AnimatePresence>
