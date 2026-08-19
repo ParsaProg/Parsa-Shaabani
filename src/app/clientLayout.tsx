@@ -6,11 +6,21 @@ import TopScrollButton from "@/components/ui/TopScrollButton";
 import { useLang } from "@/contexts/languageContext";
 import SmoothScrollLayout from "@/lib/smooth-scroll";
 import { ToastProvider } from "@/providers/react-hot-toast-provider";
-import Lenis from "@studio-freight/lenis/types";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import MainIntroScreenModal from "@/components/ui/modals/IntroScreenModel";
 
 export const ClientLayout = ({ children }: { children: ReactNode }) => {
-  const { lang } = useLang(); // get current languageAnimationFrame(raf);
+  const { lang } = useLang();
+  const [introModal, setIntroModal] = useState<boolean>(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIntroModal(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
@@ -21,8 +31,12 @@ export const ClientLayout = ({ children }: { children: ReactNode }) => {
       <TopScrollButton />
       <Header />
 
+      <AnimatePresence>
+        {introModal && <MainIntroScreenModal />}
+      </AnimatePresence>
+
       <div className="h-[50px]"></div>
-      <SmoothScrollLayout>{children}</SmoothScrollLayout>
+      <SmoothScrollLayout>{!introModal && children}</SmoothScrollLayout>
       <Footer />
     </div>
   );
