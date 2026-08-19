@@ -7,7 +7,7 @@ export default function ProjectImage({ title, posterImage }: any) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   if (!mounted) {
-    return <div className="w-full h-[150px] rounded-lg" />;
+    return <div className="w-full h-[350px] rounded-lg" />;
   }
 
   return (
@@ -17,7 +17,7 @@ export default function ProjectImage({ title, posterImage }: any) {
       src={resolvedTheme === "dark" ? posterImage.dark : posterImage.light}
       alt={title}
       unoptimized
-      className="w-full h-auto rounded-lg mb-3"
+      className="w-full rounded-lg mb-3 h-[350px]"
     />
   );
 }
