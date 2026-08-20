@@ -1,6 +1,13 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode, FC } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+  FC,
+} from "react";
 
 interface LangContextType {
   lang: string;
@@ -26,11 +33,19 @@ export const LangProvider: FC<LangProviderProps> = ({ children }) => {
       setLang("en");
       localStorage.setItem("lang", "en");
     }
+    document.title =
+      lang === "fa"
+        ? "پارسا شعبانی | وبسایت شخصی"
+        : "Parsa Shaabani | Portfolio";
   }, []);
 
   // Keep localStorage in sync whenever lang changes
   useEffect(() => {
     localStorage.setItem("lang", lang);
+    document.title =
+      lang === "fa"
+        ? "پارسا شعبانی | وبسایت شخصی"
+        : "Parsa Shaabani | Portfolio";
   }, [lang]);
 
   const toggleLang = () => setLang((prev) => (prev === "en" ? "fa" : "en"));
