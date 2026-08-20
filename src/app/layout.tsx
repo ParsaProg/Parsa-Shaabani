@@ -2,7 +2,9 @@
 
 import type { Metadata } from "next";
 
+//@ts-ignore
 import "./main.css";
+
 import { ThemeProvider } from "next-themes";
 import { LangProvider } from "@/contexts/languageContext";
 import { ClientLayout } from "./clientLayout";
