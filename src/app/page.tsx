@@ -6,7 +6,7 @@ import MySkills from "@/components/landing/Skills";
 
 export default function HomePage() {
   return (
-    <div className="mt-[90px] md:w-[90%] w-full mx-auto">
+    <div className="mt-[90px] [@media(max-width:1200px)]:w-[90%] [@media(min-width:1400px)]:w-[1400px] w-[80%] mx-auto">
       <HeroSection />
       <MySkills />
       <Experience />

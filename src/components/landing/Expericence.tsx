@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 export default function Experience() {
   const { lang } = useLang();
   return (
-    <div className=" [@media(max-width:1200px)]:w-[95%] w-[90%] mt-[50px] mx-auto ">
+    <div className="  mt-[50px] mx-auto ">
       <div className="flex dark:text-primary-dark text-primary-light items-center gap-x-2">
         <Backpack size={24} />
         <h1 className="dark:text-white text-black text-[25px] font-bold">

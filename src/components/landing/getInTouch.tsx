@@ -180,7 +180,7 @@ export default function GetInTouch() {
   };
 
   return (
-    <div className="mt-[100px] flex flex-col gap-y-3 [@media(max-width:1200px)]:w-[95%] w-[90%] mx-auto overflow-hidden">
+    <div className="mt-[100px] flex flex-col gap-y-3 mx-auto overflow-hidden">
       <motion.h1
         initial="hidden"
         whileInView="visible"

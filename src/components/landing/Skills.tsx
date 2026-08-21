@@ -10,7 +10,7 @@ import { TopSkillsModel } from "@/models/top-skills";
 export default function MySkills() {
   const { lang } = useLang();
   return (
-    <div className="flex flex-col items-start mt-[100px] md:w-[90%] w-full md:p-0 p-3 mx-auto">
+    <div className="flex flex-col items-start mt-[100px] md:p-0 p-3 mx-auto">
       <div className="flex dark:text-primary-dark text-primary-light items-center gap-x-2">
         <Rocket size={24} />
         <h1 className=" dark:text-white text-black font-bold text-[25px]">

@@ -14,14 +14,14 @@ import {
 export default function MyProjects() {
   const { lang } = useLang();
   return (
-    <div className="[@media(max-width:1200px)]:w-[95%] w-[90%] mx-auto overflow-hidden">
+    <div className=" mx-auto overflow-hidden">
       <div className="flex dark:text-primary-dark text-primary-light items-center gap-x-2">
         <BriefcaseBusiness size={24} />
         <h1 className="dark:text-white text-black font-bold text-[25px]">
           {lang === "en" ? en.myProjects.title : fa.myProjects.title}
         </h1>
       </div>
-      <div className="overflow-hidden mt-5 grid [@media(min-width:1240px)]:grid-cols-3 grid-cols-2 gap-5 w-auto [@media(max-width:850px)]:grid-cols-1">
+      <div className="overflow-hidden mt-5 columns-1 [@media(min-width:1240px)]:columns-3 md:columns-2 gap-5 w-auto [@media(max-width:850px)]:grid-cols-1">
         {lang === "en"
           ? ProjectsModelDataEn.map((val, index) => {
               return (
@@ -43,7 +43,7 @@ export default function MyProjects() {
           : ProjectsModelDataFa.map((faVal, faIndex) => {
               return (
                 <motion.div
-                className="h-[600px] "
+                  className="mb-5"
                   key={faIndex}
                   initial="hidden"
                   whileInView={"visible"}
